@@ -22,12 +22,12 @@
                 </a>
             </h6>
 
-            <form action="" >
-                <div class="content-search mr-3">
-                    <i data-feather="search"></i>
-                    <input type="search" class="form-control bg-light shadow-sm" placeholder="Search...">
-                </div>
-            </form>
+
+            <div class="content-search mr-3">
+                <i data-feather="search"></i>
+                <input type="search" class="form-control bg-light shadow-sm" placeholder="Search...">
+            </div>
+
 
             <div class="d-none d-md-block">
                 <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="printer" class="wd-10 mg-r-5"></i> Print</button>
@@ -69,7 +69,6 @@
                 @endforeach
             </tbody>
         </table>
-
 @endsection
 
 @section('scripts')

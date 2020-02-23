@@ -17,18 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/sess', function () {
-    $value = session('key', 'default');
-
-    // Store a piece of data in the session...
-    session(['key' => 'Titans victory dance.']);
-});
-
-Route::get('/retr', function () {
-    // Retrieve a piece of data from the session...
-    $value = session('key');
-    return $value;
-});
+Route::post('/ajaxTest', 'TestsController@ajaxTest');
 
 //Procurements
 Route::middleware('auth', 'profile', 'isSupervisor')->group(function () {
@@ -47,11 +36,15 @@ Route::middleware('auth', 'profile', 'isSupervisor')->group(function () {
     Route::get('/view', 'ProcurementController@view');
     Route::get('/specifications/{theID}/view', 'ProcurementController@viewOne');
 
-
+    //AJAX
+    Route::post('/specification/approve', 'AjaxController@approve');
+    Route::post('/specification/decline', 'AjaxController@decline');
 
 });
 
 Route::get('/init', 'ProcurementController@initialize');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile/{user}/init', 'ProfileController@initialize');
@@ -66,6 +59,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/{any}', 'VueController@index')->where('any', '.*');
 
 Route::post('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
+
 
 
 

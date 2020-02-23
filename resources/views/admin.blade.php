@@ -263,14 +263,14 @@ Nostalgia food
                         {{ $specification->status }}
                     </td>
                     <td class="align-content-center text-center">
-                        <a href="#" title="Approve">
-                            <i data-feather="check" class="text-success"></i>
-                        </a>
+                        <button class="btn btn-outline-success" onclick="approve({{ $specification->id }})">
+                            <i data-feather="check" ></i>
+                        </button>
                     </td>
                     <td class="align-content-center text-center">
-                        <a href="#" title="Decline">
-                            <i data-feather="x" class="text-danger"></i>
-                        </a>
+                        <button class="btn btn-outline-danger" onclick="decline({{ $specification->id }})" >
+                            <i data-feather="x" ></i>
+                        </button>
                     </td>
                 </tr>
                 @endforeach
