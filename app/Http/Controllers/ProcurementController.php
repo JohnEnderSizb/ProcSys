@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class ProcurementController extends Controller
 {
     public function index() {
-        $specifications = auth()->user()->specifications()->paginate(15);
+        $specifications = auth()->user()->specifications()->where('authorisations', '>=', 0)->paginate(15);
         return view('index',compact('specifications'));
     }
 
@@ -45,10 +45,12 @@ class ProcurementController extends Controller
 
     public function store(Request $request)
     {
-
-        //$supervisorEmail = auth()->user()->profile()->find(auth()->user()->user_id)->supervisor;
         $supervisorEmail = DB::table('profiles')->where('user_id', auth()->user()->id)->value('supervisor');
         $supervisorName = DB::table('users')->where('email', $supervisorEmail)->value('name');
+        $authorisations = DB::table('profiles')->where('user_id', auth()->user()->id)->value('authorisations');
+        if ($supervisorName) $status = "Pending authorisation by ". $supervisorName;
+        else $status = "Pending authorisation by ". $supervisorEmail;
+
         auth()->user()->specifications()->create(
             [
                 "name" => $request->has('other-toggle') ? $request['other'] : $request['hardcoded'],
@@ -56,7 +58,11 @@ class ProcurementController extends Controller
                 "priority" => $request['priority'],
                 "due_date" => $request['due_date'],
                 "authorisor" => $supervisorEmail,
-                "status" => "Pending authorisation by " . $supervisorName,
+                "status" => $status,
+                "authorisations" => $authorisations,
+                "authorised_by_assets" => False,
+                "ready_for_collection" => False,
+                "collected" => False,
             ]
         );
 
@@ -105,8 +111,7 @@ class ProcurementController extends Controller
 
     public function admin()
     {
-        $specifications = Specification::where('authorisor', auth()->user()->email)->get();
-        //dd($specifications);
+        $specifications = Specification::where('authorisor', auth()->user()->email)->where('authorisations', '>', 0)->get();
         return view('admin', compact('specifications'));
     }
 
@@ -115,5 +120,12 @@ class ProcurementController extends Controller
         return view('statistics');
     }
 
+    public function accountSettings() {
+        return view('settings');
+    }
+
 }
 //Chigadzi
+//Policy
+/*
+ */

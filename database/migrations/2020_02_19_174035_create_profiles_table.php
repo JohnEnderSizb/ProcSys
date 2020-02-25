@@ -23,7 +23,7 @@ class CreateProfilesTable extends Migration
             $table->string('mobilenumber');
             $table->string('officenumber');
             $table->string('location');
-            $table->string('supervisor');
+            $table->string('supervisor')->nullable();
             $table->integer('authorisations');
             $table->timestamps();
         });

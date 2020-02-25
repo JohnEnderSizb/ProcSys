@@ -28,7 +28,7 @@ class ProfileController extends Controller
             'mobilenumber' => 'required',
             'officenumber' => 'required',
             'location' => 'required',
-            'supervisor' => 'required',
+            'supervisor' => '',
             'authorisations' => 'required',
         ]);
 
@@ -36,4 +36,28 @@ class ProfileController extends Controller
 
       return redirect('/home');
     }
+
+    public function storeUpdate(Request $request){
+
+        $validatedData = $request->validate([
+            'jobTitle' => 'required',
+            'employeenumber' => 'required|unique:profiles',
+            'address' => 'required',
+            'gender' => 'required',
+            'mobilenumber' => 'required',
+            'officenumber' => 'required',
+            'location' => 'required',
+            'supervisor' => '',
+            'authorisations' => 'required',
+        ]);
+        $profile = auth()->user()->profile;
+        $profile->update($validatedData);
+        return redirect('/home');
+    }
+
+    public function update(){
+        $profile = auth()->user()->profile;
+        return view('profile', compact("profile"));
+    }
+
 }

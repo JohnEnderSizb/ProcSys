@@ -88,7 +88,7 @@
                         <td colspan="2">
                             <div class="form-group" style="padding: 0; margin: 0">
                                 <label for="address" class="form-label">Address</label>
-                                <input type="text" name="address" id="address" class="form-control " placeholder="Address">
+                                <input type="text" name="address" id="address" class="form-control " placeholder="Address" required>
                             </div>
                         </td>
                     </tr>
@@ -207,7 +207,7 @@
                         <td>
                             <div class="form-group" style="padding: 0; margin: 0">
                                 <label for="supervisor" class="form-label">Supervisor Email:</label>
-                                <input type="email" name="supervisor" placeholder="example@agribank.co.zw" class="form-control field-style" required>
+                                <input type="email" name="supervisor" placeholder="example@agribank.co.zw" class="form-control field-style">
                             </div>
                         </td>
                         <td>

@@ -232,7 +232,7 @@ Nostalgia food
             <tbody>
 
             @foreach($specifications as $specification)
-                <tr id="$specification->id">
+                <tr id="{{ $specification->id }}">
                     <td>
                         {{ $specification->id }}
                     </td>

@@ -22,6 +22,11 @@ class CreateSpecificationsTable extends Migration
             $table->string('due_date');
             $table->string('authorisor');
             $table->string('status');
+            $table->text('reason_for_decline')->nullable();
+            $table->integer('authorisations');//0 means approved, -1 meand declined
+            $table->boolean('authorised_by_assets');
+            $table->boolean('ready_for_collection');
+            $table->boolean('collected');
             $table->timestamps();
         });
     }

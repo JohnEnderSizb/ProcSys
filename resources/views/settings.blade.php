@@ -7,7 +7,8 @@
     @endsection
 
 @section('content')
-
+    <hr>
+<button class="btn btn-primary">Crate Assets Personell Account</button>
 
 
 @endsection

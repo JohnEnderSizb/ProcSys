@@ -120,7 +120,7 @@
                             <div class="col-md-7">
                                 <div class="">
                                     <select id="hard-coded" class="select-css select-css" style="" name="hardcoded">
-                                        <option>Select Item</option>
+                                        <option value="">Select Item</option>
                                         <option  disabled="1" class="bg-light shadow-sm">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPRINTED STATIONERY-</option><br/>
                                         <option  value='Request for Bank Balance-Pads'>Request for Bank Balance-Pads</option>
                                         <option  value='Credit Customer A/C Slips'>Credit Customer A/C Slips</option>
@@ -134,7 +134,7 @@
                                         <option value="School Fees Cash Deposit Slips-Packs" >School Fees Cash Deposit Slips-Packs</option>
                                         <option value="Mandate for Club Accounts-Pads" >Mandate for Club Accounts-Pads</option>
                                         <option value="Mandate: Consent Minor A/C-Pads" >Mandate: Consent Minor A/C-Pads</option>
-                                        <option value="Signing Arrangements on a Company Account-Pads<" >Signing Arrangements on a Company Account-Pads</option>
+                                        <option value="Signing Arrangements on a Company Account-Pads" >Signing Arrangements on a Company Account-Pads</option>
                                         <option value="Business Acc Opening Form-Packets" >Business Acc Opening Form-Packets</option>
                                         <option value="App for Personal/Joint A/C-Packets" >App for Personal/Joint A/C-Packets</option>
                                         <option value="Signature Cards-Packets of 500 Cards" >Signature Cards-Packets of 500 Cards</option>
@@ -290,7 +290,7 @@
 
                 <tr>
                     <td colspan="2">
-                        <textarea name="description" class="form-control field-style" placeholder="Description/Details" style="height: 100px"></textarea>
+                        <textarea name="description" class="form-control field-style" placeholder="Description/Details" style="height: 100px" required></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -299,7 +299,7 @@
                             <h5>
                                 <label for="due-date" style="color: #0168f8">Due date:</label>
                             </h5>
-                            <input type="date" class="form-control field-style" name="due_date">
+                            <input type="date" class="form-control field-style" name="due_date" required>
                         </div>
                     </td>
                     <td>
@@ -307,7 +307,7 @@
                             <h5>
                                 <label for="due-date" style="color: #0168f8">Priority:</label>
                             </h5>
-                            <select class="select-css form-control" name="priority">
+                            <select class="select-css form-control" name="priority" required>
                                 <option value="low">Low</option>
                                 <option value="medium">Medium</option>
                                 <option value="high">High</option>

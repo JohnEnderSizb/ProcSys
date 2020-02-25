@@ -19,15 +19,23 @@ Auth::routes();
 
 Route::post('/ajaxTest', 'TestsController@ajaxTest');
 
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile/{user}/init', 'ProfileController@initialize');
+    Route::post('/profile/{user}/init', 'ProfileController@create');
+});
+
+
+
 //Procurements
 Route::middleware('auth', 'profile', 'isSupervisor')->group(function () {
+    //ASSETS
     Route::get('/home', 'ProcurementController@index');
     Route::get('/test', 'ProcurementController@test')->name('test');
     Route::get('/links', 'ProcurementController@links')->name('links');
     Route::get('/settings', 'ProcurementController@settings')->name('settings');
     Route::get('/help', 'ProcurementController@helpCenter')->name('helpCenter');
     Route::get('/mail', 'ProcurementController@mail')->name('mail');
-    Route::get('/1/profile/view', 'ProcurementController@profile')->name('profile');
     Route::get('/profile/1/admin', 'ProcurementController@admin')->name('admin');
     Route::get('/profile/1/stats', 'ProcurementController@statistics')->name('stats');
 
@@ -38,18 +46,19 @@ Route::middleware('auth', 'profile', 'isSupervisor')->group(function () {
 
     //AJAX
     Route::post('/specification/approve', 'AjaxController@approve');
+    Route::get('/specification/approve', 'AjaxController@approvet');
     Route::post('/specification/decline', 'AjaxController@decline');
 
+    Route::get('/profile/{profile}/view', 'ProfileController@update');
+    Route::post('/profile/update', 'ProfileController@storeUpdate');
+
+    Route::post('/account/settings', 'ProcurementController@accountSettings');
+
+    Route::get('/assets/home', 'AssetsController@index');
+    Route::post('/assets/manage/show', 'AssetsController@manageShow');
 });
 
-Route::get('/init', 'ProcurementController@initialize');
 
-
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile/{user}/init', 'ProfileController@initialize');
-    Route::post('/profile/{user}/init', 'ProfileController@create');
-});
 
 
 

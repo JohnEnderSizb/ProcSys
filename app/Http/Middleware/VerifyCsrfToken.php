@@ -21,6 +21,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         '/ajaxTest',
         '/specification/approve',
-        '/specification/decline'
+        '/specification/decline',
+        '/assets/manage/show'
     ];
 }

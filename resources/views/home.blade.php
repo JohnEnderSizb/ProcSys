@@ -57,6 +57,68 @@
             background: #cecece;
         }
 
+        .modal {
+            display:none;
+            position: fixed;
+            z-index: 10;
+            right: 0;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: auto;
+            background-color: rgba(6, 14, 7, 0.77);
+            border-radius: 0px;
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+        .avatar {
+            width: 200px;
+            height:200px;
+            border-radius: 50%;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            /*margin: 4% auto 15% auto;
+            border: 1px solid #888;
+            width: 40%;*/
+            margin-top: 10%;
+            padding-bottom: 30px;
+            background: #FFF url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207'),
+            linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%) no-repeat, repeat right .7em top 50%, 0 0;
+            background-size: .65em auto, 100%;
+
+        }
+
+        /* The Close Button (x) */
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+        .close:hover,.close:focus {
+            color: red;
+            cursor: pointer;
+        }
+
+
+        /* Add Zoom Animation */
+        .animate {
+            animation: zoom 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
 
     </style>
 
@@ -96,9 +158,8 @@
             </div>
             <div class="collapse " id="loggedinMenu">
                 <ul class="nav nav-aside mg-b-0">
-                    <li class="nav-item "><a href="" class="nav-link"><i data-feather="edit"></i> <span>Edit Profile</span></a></li>
-                    <li class="nav-item"><a href="/1/profile/view" class="nav-link"><i data-feather="user"></i> <span>View Profile</span></a></li>
-                    <li class="nav-item"><a href="" class="nav-link"><i data-feather="settings"></i> <span>Account Settings</span></a></li>
+                    <li class="nav-item "><a href="/profile/{{ auth()->user()->id }}/view" class="nav-link"><i data-feather="edit"></i> <span>Edit Profile</span></a></li>
+                    <li class="nav-item"><a href="/account/settings" class="nav-link"><i data-feather="settings"></i> <span>Account Settings</span></a></li>
                     <li class="nav-item">
                         <a  href="{{ route('logout') }}" class="nav-link"
 
@@ -126,6 +187,7 @@
             @endif
 
             <li class="nav-item"><a href="/links" class="nav-link"><i data-feather="link" style="color: #0168f8"></i> <span>Quick Links</span></a></li>
+            <li class="nav-item"><a href="/assets/home" class="nav-link"><i data-feather="link" style="color: #0168f8"></i> <span>Admin</span></a></li>
             <li class="nav-item"><a href="/home" class="nav-link"><i data-feather="bell" style="color: #0168f8"></i> <span>Notifications</span></a></li>
             <li class="nav-item"><a href="/settings" class="nav-link"><i data-feather="settings" style="color: #0168f8"></i> <span>Settings</span></a></li>
             <li class="nav-item"><a href="/mail" class="nav-link"><i data-feather="mail" style="color: #0168f8"></i> <span>Messages</span></a></li>

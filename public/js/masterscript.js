@@ -25,9 +25,11 @@
          data:{
              specificationID: specificationID,
          },
-         success:function(data) {
-             //success
-             console.log(data.msg);
+         success:function(response) {
+             console.log(response.status);
+             if (response.status == "done") {
+                 $("#"+specificationID).hide('slow');
+             }
 
          }, error:function () {
              //error
@@ -43,9 +45,12 @@
          data:{
              specificationID: specificationID,
          },
-         success:function(data) {
+         success:function(response) {
             //success
-             console.log(data.msg);
+             console.log(response.status);
+             if (response.status == "done") {
+                 $("#"+specificationID).hide('slow');
+             }
 
          }, error:function () {
              //error
