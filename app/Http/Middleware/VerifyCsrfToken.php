@@ -22,6 +22,9 @@ class VerifyCsrfToken extends Middleware
         '/ajaxTest',
         '/specification/approve',
         '/specification/decline',
-        '/assets/manage/show'
+        '/assets/manage/show',
+        '/assets/manage/approve',
+        '/assets/manage/decline',
+        '/assets/manage/notAvailable',
     ];
 }

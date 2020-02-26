@@ -4,8 +4,8 @@
     <style>
         @keyframes click-wave {
             0% {
-                height: 40px;
-                width: 40px;
+                height: 20px;
+                width: 20px;
                 opacity: 0.35;
                 position: relative;
             }
@@ -25,12 +25,12 @@
             -o-appearance: none;
             appearance: none;
             position: relative;
-            top: 13.33333px;
+            top: 8.33333px;
             right: 0;
-            bottom: 0;
+            bottom: 8.33333;
             left: 0;
-            height: 40px;
-            width: 40px;
+            height: 20px;
+            width: 20px;
             transition: all 0.15s ease-out 0s;
             background: #cbd1d8;
             border: none;
@@ -46,23 +46,23 @@
             background: #9faab7;
         }
         .option-input:checked {
-            background: #5ee038;
+            background: #6be065;
         }
         .option-input:checked::before {
-            height: 40px;
-            width: 40px;
+            height: 20px;
+            width: 20px;
             position: absolute;
             content: '✔';
             display: inline-block;
-            font-size: 26.66667px;
+            font-size: 13.3333px;
             text-align: center;
-            line-height: 40px;
+            line-height: 20px;
         }
         .option-input:checked::after {
             -webkit-animation: click-wave 0.65s;
             -moz-animation: click-wave 0.65s;
             animation: click-wave 0.65s;
-            background: #6be065;
+            background: #525252;
             content: '';
             display: block;
             position: relative;
@@ -137,8 +137,8 @@
                     <div class="text-center">
                         <h4 style="width: 50%; margin: auto; padding: 3px; padding-bottom:5px" class="bg-primary text-white">Manage</h4> <br>
                     </div>
-                    <div class="container">
-                        <table class="table table-striped table-bordered">
+                    <div class="container table-responsive-lg">
+                        <table class="table table-sm table-striped table-bordered">
                             <tr>
                                 <th>Date</th>
                                 <th>User</th>
@@ -163,23 +163,33 @@
                     </div>
 
                     <h4 class="text-primary text-center">Actions</h4><hr>
-                    <table class="table table-bordered text-center">
+                    <table class="table table-sm table-bordered text-center">
                         <tr>
                             <th class="align-content-center pb-3">
-                                <form action="">
                                     Approve:
                                     <input type="checkbox" class="option-input checkbox ml-3" name="approveCheckbox" id="approveCheckbox" value="approve"/>
-                                    <br>
-                                    <button class="btn btn-sm btn-outline-success">Submit</button>
-                                </form>
+                                    <br> <br>
+                                    <div style="display: none" id="approve-submit">
+                                        <button onclick="approve()" class="btn btn-sm btn-outline-success">Submit</button>
+                                    </div>
                             </th>
                             <th>
                                 Decline:
                                 <input type="checkbox" class="option-input checkbox ml-3" id="declineCheckbox" name="declineCheckbox" value="approve"/>
+                                <br> <br>
+                                <div style="display: none" id="decline-submit">
+                                    <textarea class="form-control" name="" id="" style="height: 60px" placeholder="Reason for declining..." required></textarea>
+                                    <br>
+                                    <button onclick="decline()" class="btn btn-sm btn-outline-success">Submit</button>
+                                </div>
                             </th>
                             <th>
                                 Not Available:
                                 <input type="checkbox" class="option-input checkbox ml-3" id="notAvailableCheckbox" name="notAvailableCheckbox" value="approve"/>
+                                <br> <br>
+                                <div style="display: none" id="na-submit">
+                                    <button onclick="notAvailable()" class="btn btn-sm btn-outline-success">Submit</button>
+                                </div>
                             </th>
                         </tr>
                     </table>
@@ -226,6 +236,58 @@
             });
 
            document.getElementById('changeDetailsForm').style.display='block';
+        }
+
+
+        $("#approveCheckbox").change(function() {
+            if(this.checked) {
+                $("#declineCheckbox").prop("checked", false);
+                $("#notAvailableCheckbox").prop("checked", false);
+                $('#decline-submit').hide();
+                $('#na-submit').hide();
+                $('#approve-submit').show();
+            }
+            else {
+                $('#approve-submit').hide();
+            }
+        });
+
+        $("#declineCheckbox").change(function() {
+            if(this.checked) {
+                $("#approveCheckbox").prop("checked", false);
+                $("#notAvailableCheckbox").prop("checked", false);
+                $('#decline-submit').show();
+                $('#na-submit').hide();
+                $('#approve-submit').hide();
+            }
+            else {
+                $('#decline-submit').hide();
+            }
+        });
+
+        $("#notAvailableCheckbox").change(function() {
+            if(this.checked) {
+                $("#declineCheckbox").prop("checked", false);
+                $("#approveCheckbox").prop("checked", false);
+                $('#decline-submit').hide();
+                $('#approve-submit').hide();
+                $('#na-submit').show();
+            }
+            else {
+                $('#na-submit').hide();
+            }
+        });
+
+        function  approve() {
+            console.log("Approve " + currentID);
+        }
+
+        function decline() {
+            console.log("Decline " + currentID);
+        }
+
+        function notAvailable() {
+            console.log("Not Available " + currentID);
         }
 
     </script>

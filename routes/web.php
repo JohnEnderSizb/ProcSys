@@ -56,6 +56,10 @@ Route::middleware('auth', 'profile', 'isSupervisor')->group(function () {
 
     Route::get('/assets/home', 'AssetsController@index');
     Route::post('/assets/manage/show', 'AssetsController@manageShow');
+
+    Route::post('/assets/manage/approve', 'AssetsController@manageShow');
+    Route::post('/assets/manage/decline', 'AssetsController@manageShow');
+    Route::post('/assets/manage/notAvailable', 'AssetsController@manageShow');
 });
 
 

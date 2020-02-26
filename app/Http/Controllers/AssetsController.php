@@ -22,4 +22,16 @@ class AssetsController extends Controller
         $jobTitle = $specification->user->profile->jobTitle;
         return response()->json(['specification' => $specification, 'userName' => $userName, 'jobTitle' => $jobTitle]);
     }
+
+    public function approve(Request $request){
+        return response()->json(['status' => 'done']);
+    }
+
+    public function decline(Request $request){
+        return response()->json(['status' => 'done']);
+    }
+
+    public function notAvailable(Request $request){
+        return response()->json(['status' => 'done']);
+    }
 }

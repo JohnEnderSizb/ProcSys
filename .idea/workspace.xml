@@ -2,33 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8267ddbc-ac86-4b99-a752-d91e2e3e2e19" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/NOTES.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/assets.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Procurement.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Procurement.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProcurementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProcurementController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AssetsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AssetsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_17_195550_create_specifications_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_17_195550_create_specifications_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_19_174035_create_profiles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_19_174035_create_profiles_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/masterscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/masterscript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/initialize.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/initialize.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/settings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/settings.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/assets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -213,6 +190,7 @@
       <workItem from="1582423305316" duration="705000" />
       <workItem from="1582560887838" duration="27731000" />
       <workItem from="1582648288666" duration="18460000" />
+      <workItem from="1582673113431" duration="4920000" />
     </task>
     <servers />
   </component>
@@ -253,10 +231,10 @@
     </state>
     <state x="324" y="270" key="com.intellij.ide.util.TipDialog/0.0.1280.984@0.0.1280.984" timestamp="1582673112217" />
     <state x="363" y="211" key="com.intellij.ide.util.TipDialog/23.0.1343.768@23.0.1343.768" timestamp="1580730347555" />
-    <state x="318" y="114" width="672" height="869" key="search.everywhere.popup" timestamp="1582667739650">
+    <state x="318" y="114" width="672" height="869" key="search.everywhere.popup" timestamp="1582677400566">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="318" y="114" width="672" height="869" key="search.everywhere.popup/0.0.1280.984@0.0.1280.984" timestamp="1582667739650" />
+    <state x="318" y="114" width="672" height="869" key="search.everywhere.popup/0.0.1280.984@0.0.1280.984" timestamp="1582677400566" />
     <state x="357" y="89" width="672" height="678" key="search.everywhere.popup/23.0.1343.768@23.0.1343.768" timestamp="1580732950833" />
   </component>
 </project>
