@@ -112,7 +112,7 @@
 
         /* Add Zoom Animation */
         .animate {
-            animation: zoom 0.6s;
+            animation: zoom 0.1s;
         }
 
         @keyframes zoom {
@@ -206,7 +206,7 @@
         <div class="water-mark">
             <div class="content-body">
                 <div class="container pd-x-0">
-                    <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+                    <!--div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
                         <div>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb breadcrumb-style1 mg-b-10">
@@ -221,7 +221,7 @@
                             </nav>
                         </div>
 
-                    </div>
+                    </div-->
 
                     <div class="container-fluid">
 

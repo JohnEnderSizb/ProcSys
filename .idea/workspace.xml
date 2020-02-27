@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8267ddbc-ac86-4b99-a752-d91e2e3e2e19" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/assets/collection.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/assets/declined.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/assets/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/assets/notAvail.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/testView.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AssetsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AssetsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProcurementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProcurementController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/assets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_17_195550_create_specifications_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_17_195550_create_specifications_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/assets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets/collected.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,11 +150,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/assets" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\JSiziba\Desktop\Procurement\Procurement\resources\views\assets" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\JSiziba\Desktop\Procurement\Procurement\resources\views\assets" />
       <recent name="C:\Users\JSiziba\Desktop\Procurement\Procurement\resources\views" />
       <recent name="C:\Users\JSiziba\Desktop\Procurement\Procurement" />
       <recent name="$PROJECT_DIR$/resources/views" />
@@ -191,6 +205,7 @@
       <workItem from="1582560887838" duration="27731000" />
       <workItem from="1582648288666" duration="18460000" />
       <workItem from="1582673113431" duration="5518000" />
+      <workItem from="1582733309190" duration="28202000" />
     </task>
     <servers />
   </component>
@@ -198,10 +213,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="370" y="248" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1582651532951">
+    <state x="370" y="248" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1582748385223">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="370" y="248" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.984@0.0.1280.984" timestamp="1582651532951" />
+    <state x="370" y="248" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.984@0.0.1280.984" timestamp="1582748385223" />
     <state width="1237" height="263" key="GridCell.Tab.0.bottom" timestamp="1582599881755">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
@@ -226,15 +241,19 @@
       <screen x="23" y="0" width="1343" height="768" />
     </state>
     <state x="512" y="306" width="356" height="149" key="NewPhpFileDialog/23.0.1343.768@23.0.1343.768" timestamp="1580716853802" />
-    <state x="324" y="270" key="com.intellij.ide.util.TipDialog" timestamp="1582673112217">
+    <state x="324" y="270" key="com.intellij.ide.util.TipDialog" timestamp="1582733368524">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="324" y="270" key="com.intellij.ide.util.TipDialog/0.0.1280.984@0.0.1280.984" timestamp="1582673112217" />
+    <state x="324" y="270" key="com.intellij.ide.util.TipDialog/0.0.1280.984@0.0.1280.984" timestamp="1582733368524" />
     <state x="363" y="211" key="com.intellij.ide.util.TipDialog/23.0.1343.768@23.0.1343.768" timestamp="1580730347555" />
-    <state x="318" y="114" width="672" height="869" key="search.everywhere.popup" timestamp="1582677400566">
+    <state x="296" y="226" key="run.anything.popup" timestamp="1582755497316">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="318" y="114" width="672" height="869" key="search.everywhere.popup/0.0.1280.984@0.0.1280.984" timestamp="1582677400566" />
+    <state x="296" y="226" key="run.anything.popup/0.0.1280.984@0.0.1280.984" timestamp="1582755497316" />
+    <state x="318" y="114" width="672" height="869" key="search.everywhere.popup" timestamp="1582766618794">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="318" y="114" width="672" height="869" key="search.everywhere.popup/0.0.1280.984@0.0.1280.984" timestamp="1582766618794" />
     <state x="357" y="89" width="672" height="678" key="search.everywhere.popup/23.0.1343.768@23.0.1343.768" timestamp="1580732950833" />
   </component>
 </project>

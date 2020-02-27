@@ -72,9 +72,17 @@
     @endsection
 
 @section('content')
-    <div class="d-flex align-items-center">
+    <div class="shadow mb-3 bg-light">
+        <nav class="nav nav-pills flex-column flex-sm-row p-2">
+            <a class="flex-sm-fill text-sm-center nav-link" href="/assets/home" title="New Internal Requisitions">Pending</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="/assets/collection" title="Ready for collection">Collection</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="/assets/collected" title="Collected assets">Collected</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="/assets/notAvail" title="Assets marked as not available">Not Available</a>
+            <a class="flex-sm-fill text-sm-center nav-link active" href="/assets/declined" title="Declined Requests">Declined</a>
+        </nav>
+    </div>
 
-        <button onclick="document.getElementById('changeDetailsForm').style.display='block'">Show Modat Test</button>
+    <div class="d-flex align-items-center">
 
         <div class="content-search mr-3">
             <i data-feather="search"></i>
@@ -91,7 +99,7 @@
     <hr>
 
     <table class="table table-hover table-striped">
-        <tr class="bg-primary text-white">
+        <tr class="bg-info text-white">
             <th>Date</th>
             <th>User</th>
             <th>Position</th>
@@ -104,7 +112,7 @@
         </tr>
         @foreach($specifications as  $specification)
 
-            <tr>
+            <tr id="{{ $specification->id }}">
                 <td>{{ $specification->created_at->diffForHumans() }}</td>
                 <td>{{ $specification->user->name }}</td>
                 <td>{{ $specification->user->profile->jobTitle }}</td>
@@ -130,7 +138,7 @@
             <div class="col-lg-1 col-md-1 col-sm-12 col-sm-12">
             </div>
             <div class="col-lg-10 col-md-10 col-sm-12 col-sm-12">
-                <form class="modal-content animate" action="profile.php" method="POST">
+                <div class="modal-content animate">
                     <div class="imgcontainer">
                         <span onclick="document.getElementById('changeDetailsForm').style.display='none'" class="close text-danger font-weight-bold" title="Cancel">&times;</span>
                     </div>
@@ -178,7 +186,8 @@
                                 <input type="checkbox" class="option-input checkbox ml-3" id="declineCheckbox" name="declineCheckbox" value="approve"/>
                                 <br> <br>
                                 <div style="display: none" id="decline-submit">
-                                    <textarea class="form-control" name="" id="" style="height: 60px" placeholder="Reason for declining..." required></textarea>
+                                    <!--textarea class="form-control" name="reason" id="reason" style="height: 60px" placeholder="Reason for declining..." required></textarea-->
+                                    <input type="text" name="reason" id="reason" class="form-control" placeholder="Reason for declining..." required>
                                     <br>
                                     <button onclick="decline()" class="btn btn-sm btn-outline-success">Submit</button>
                                 </div>
@@ -193,7 +202,7 @@
                             </th>
                         </tr>
                     </table>
-                </form>
+                </div>
             </div>
             <div class="col-lg-1 col-md-1 col-sm-12 col-sm-12">
             </div>
@@ -280,13 +289,71 @@
 
         function  approve() {
             console.log("Approve " + currentID);
+            $.ajax({
+                type:'POST',
+                url:'/assets/manage/approve',
+                data:{
+                    theID: currentID,
+                },
+                success:function(response) {
+                    //success
+                    console.log(response.status);
+                    $('#changeDetailsForm').hide('fast');
+                    $('#'+ currentID).hide();
+                }, error:function () {
+                    //error
+                    alert("An Error Occured");
+                }
+            });
+
         }
 
         function decline() {
             console.log("Decline " + currentID);
+            reason = $("#reason").val().trim();
+
+            if(reason == ""){
+                return;
+            }
+
+            $.ajax({
+                type:'POST',
+                url:'/assets/manage/decline',
+                data:{
+                    theID: currentID,
+                    reason: reason,
+                },
+                success:function(response) {
+                    //success
+                    console.log(response.status);
+                    $('#changeDetailsForm').hide('fast');
+                    $('#'+ currentID).hide();
+                }, error:function () {
+                    //error
+                    alert("An Error Occured");
+                }
+            });
         }
 
         function notAvailable() {
+            console.log("Decline " + currentID);
+            console.log("Approve " + currentID);
+            $.ajax({
+                type:'POST',
+                url:'/assets/manage/notAvailable',
+                data:{
+                    theID: currentID,
+                },
+                success:function(response) {
+                    //success
+                    console.log(response.status);
+                    $('#changeDetailsForm').hide('fast');
+                    $('#'+ currentID).hide();
+                }, error:function () {
+                    //error
+                    alert("An Error Occured");
+                }
+            });
             console.log("Not Available " + currentID);
         }
 

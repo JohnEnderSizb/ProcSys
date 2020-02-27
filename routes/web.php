@@ -11,6 +11,8 @@
 |
 */
 
+header('Access-Control-Allow-Origin: *');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -54,18 +56,32 @@ Route::middleware('auth', 'profile', 'isSupervisor')->group(function () {
 
     Route::post('/account/settings', 'ProcurementController@accountSettings');
 
+    //ASSETS
     Route::get('/assets/home', 'AssetsController@index');
+    Route::get('/assets/collection', 'AssetsController@collection');
+    Route::get('/assets/collected', 'AssetsController@collected');
+    Route::get('/assets/declined', 'AssetsController@declined');
+    Route::get('/assets/notAvail', 'AssetsController@notAvail');
+
     Route::post('/assets/manage/show', 'AssetsController@manageShow');
 
-    Route::post('/assets/manage/approve', 'AssetsController@manageShow');
-    Route::post('/assets/manage/decline', 'AssetsController@manageShow');
-    Route::post('/assets/manage/notAvailable', 'AssetsController@manageShow');
+    Route::post('/assets/manage/approve', 'AssetsController@approve');
+    Route::post('/assets/manage/decline', 'AssetsController@decline');
+    Route::post('/assets/manage/notAvailable', 'AssetsController@notAvailable');
+
+
+    //TESTING
+    Route::get('/test/testing', 'TestController@test');
 });
 
 
+Route::post('/app/assets/collect', 'AssetsController@collectApp');
+Route::post('/app/login', 'AssetsController@appLogin');
 
 
-
+Route::get('simple-qr-code', function () {
+    return QrCode::size(200)->generate('W3Adda Laravel Tutorial');
+});
 
 
 

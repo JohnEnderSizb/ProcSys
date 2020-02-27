@@ -51,6 +51,9 @@ class ProcurementController extends Controller
         if ($supervisorName) $status = "Pending authorisation by ". $supervisorName;
         else $status = "Pending authorisation by ". $supervisorEmail;
 
+        $qr_code = rand(1000000000000000,9999999999999999);
+        $qr_code = $qr_code . rand(1000,9999);
+
         auth()->user()->specifications()->create(
             [
                 "name" => $request->has('other-toggle') ? $request['other'] : $request['hardcoded'],
@@ -63,6 +66,7 @@ class ProcurementController extends Controller
                 "authorised_by_assets" => False,
                 "ready_for_collection" => False,
                 "collected" => False,
+                "QrCode" => $qr_code,
             ]
         );
 

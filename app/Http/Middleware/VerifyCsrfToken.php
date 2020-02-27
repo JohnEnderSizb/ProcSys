@@ -26,5 +26,7 @@ class VerifyCsrfToken extends Middleware
         '/assets/manage/approve',
         '/assets/manage/decline',
         '/assets/manage/notAvailable',
+        '/app/assets/collect',
+        '/app/login',
     ];
 }
