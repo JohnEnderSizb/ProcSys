@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8267ddbc-ac86-4b99-a752-d91e2e3e2e19" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +122,7 @@
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
       <path value="$PROJECT_DIR$/vendor/mckenziearts/laravel-notify" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
       <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
       <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
       <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
@@ -131,40 +131,6 @@
       <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
       <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
       <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
-      <path value="$PROJECT_DIR$/vendor/vendor/phpdocumentor" />
-      <path value="$PROJECT_DIR$/vendor/vendor/jakub-onderka" />
-      <path value="$PROJECT_DIR$/vendor/vendor/maximebf" />
-      <path value="$PROJECT_DIR$/vendor/vendor/myclabs" />
-      <path value="$PROJECT_DIR$/vendor/vendor/bacon" />
-      <path value="$PROJECT_DIR$/vendor/vendor/dnoegel" />
-      <path value="$PROJECT_DIR$/vendor/vendor/phpunit" />
-      <path value="$PROJECT_DIR$/vendor/vendor/paragonie" />
-      <path value="$PROJECT_DIR$/vendor/vendor/mockery" />
-      <path value="$PROJECT_DIR$/vendor/vendor/nunomaduro" />
-      <path value="$PROJECT_DIR$/vendor/vendor/dragonmantank" />
-      <path value="$PROJECT_DIR$/vendor/vendor/doctrine" />
-      <path value="$PROJECT_DIR$/vendor/vendor/nikic" />
-      <path value="$PROJECT_DIR$/vendor/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/vendor/league" />
-      <path value="$PROJECT_DIR$/vendor/vendor/psy" />
-      <path value="$PROJECT_DIR$/vendor/vendor/fideloper" />
-      <path value="$PROJECT_DIR$/vendor/vendor/barryvdh" />
-      <path value="$PROJECT_DIR$/vendor/vendor/phpoption" />
-      <path value="$PROJECT_DIR$/vendor/vendor/ramsey" />
-      <path value="$PROJECT_DIR$/vendor/vendor/phar-io" />
-      <path value="$PROJECT_DIR$/vendor/vendor/laravel" />
-      <path value="$PROJECT_DIR$/vendor/vendor/bin" />
-      <path value="$PROJECT_DIR$/vendor/vendor/filp" />
-      <path value="$PROJECT_DIR$/vendor/vendor/hamcrest" />
-      <path value="$PROJECT_DIR$/vendor/vendor/facade" />
-      <path value="$PROJECT_DIR$/vendor/vendor/nesbot" />
-      <path value="$PROJECT_DIR$/vendor/vendor/opis" />
-      <path value="$PROJECT_DIR$/vendor/vendor/fzaninotto" />
-      <path value="$PROJECT_DIR$/vendor/vendor/monolog" />
-      <path value="$PROJECT_DIR$/vendor/vendor/psr" />
-      <path value="$PROJECT_DIR$/vendor/vendor/scrivo" />
-      <path value="$PROJECT_DIR$/vendor/vendor/phpspec" />
-      <path value="$PROJECT_DIR$/vendor/vendor/egulias" />
     </include_path>
   </component>
   <component name="ProjectId" id="1X9Ptq15PrrTr9HSa2XwMVyUyOL" />
@@ -239,6 +205,7 @@
       <workItem from="1582733309190" duration="28815000" />
       <workItem from="1582819903955" duration="19820000" />
       <workItem from="1582906615251" duration="24810000" />
+      <workItem from="1583189440232" duration="2363000" />
     </task>
     <servers />
   </component>
@@ -282,10 +249,10 @@
       <screen x="23" y="0" width="1343" height="768" />
     </state>
     <state x="512" y="306" width="356" height="149" key="NewPhpFileDialog/23.0.1343.768@23.0.1343.768" timestamp="1580716853802" />
-    <state x="324" y="270" key="com.intellij.ide.util.TipDialog" timestamp="1582907111460">
+    <state x="324" y="270" key="com.intellij.ide.util.TipDialog" timestamp="1583189877282">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="324" y="270" key="com.intellij.ide.util.TipDialog/0.0.1280.984@0.0.1280.984" timestamp="1582907111460" />
+    <state x="324" y="270" key="com.intellij.ide.util.TipDialog/0.0.1280.984@0.0.1280.984" timestamp="1583189877282" />
     <state x="363" y="211" key="com.intellij.ide.util.TipDialog/23.0.1343.768@23.0.1343.768" timestamp="1580730347555" />
     <state x="296" y="226" key="run.anything.popup" timestamp="1582755497316">
       <screen x="0" y="0" width="1280" height="984" />
