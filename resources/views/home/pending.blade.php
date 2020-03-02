@@ -1,7 +1,7 @@
 @extends('home')
 
 @section('styling')
-    <link rel="stylesheet" href="css/index_blade.css">
+    <link rel="stylesheet" href="/css/index_blade.css">
 
     <style>
         table {
@@ -15,6 +15,15 @@
     @endsection
 
 @section('content')
+    <div class="shadow mb-3 bg-light">
+        <nav class="nav nav-pills flex-column flex-sm-row p-2">
+            <a class="flex-sm-fill text-sm-center nav-link active" href="/home" title="New Internal Requisitions">Pending</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="/home/approved" title="Ready for collection">Approved</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="/home/collected" title="Collected assets">Collected</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="/home/rejected" title="Rejected requests">Rejected</a>
+        </nav>
+    </div>
+
         <div class="d-flex align-items-center">
             <h6 class="mg-b-0 tx-spacing--1 mr-5">
                 <a href="/profile/specification/create">
@@ -30,8 +39,16 @@
 
 
             <div class="d-none d-md-block">
-                <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="printer" class="wd-10 mg-r-5"></i> Print</button>
-                <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="file" class="wd-10 mg-r-5"></i> Generate Report</button>
+                <!--button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="printer" class="wd-10 mg-r-5"></i> Print</button-->
+                <div class="dropdown">
+                    <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5 dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"><i data-feather="file" class="wd-10 mg-r-5"></i> Generate Report</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/pdf/test"  target="_blank">Pending Requests - PDF</a>
+                        <a class="dropdown-item" href="/excell" download>Pending Requests - CSV</a>
+                        <a class="dropdown-item" href="#" target="_blank">All Requests - PDF</a>
+                        <a class="dropdown-item" href="#" target="_blank">All Requests - CSV</a>
+                    </div>
+                </div>
             </div>
 
         </div>

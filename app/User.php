@@ -45,4 +45,8 @@ class User extends Authenticatable
     public function profile() {
         return $this->hasOne(Profile::class);
     }
+
+    public function adminActions() {
+        return $this->hasMany(AdminAction::class)->orderBy('created_at', 'DESC');
+    }
 }

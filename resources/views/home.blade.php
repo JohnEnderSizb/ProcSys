@@ -12,6 +12,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="../../logo.png">
 
     <title>Requisitions</title>
+    @notifyCss
 
     <script src="/js/notify.min.js"></script>
 
@@ -117,6 +118,10 @@
             animation: zoom 0.1s;
         }
 
+        .hidden {
+            display: none;
+        }
+
         @keyframes zoom {
             from {transform: scale(0)}
             to {transform: scale(1)}
@@ -184,16 +189,16 @@
             <li class="nav-item"><a href="/home" class="nav-link"><i data-feather="home" style="color: #0168f8"></i> <span>Home</span></a></li>
 
             @if(session('isSupervisor'))
-                <li class="nav-item"><a href="/profile/1/admin" class="nav-link"><i data-feather="activity" style="color: #0168f8"></i> <span>Admin.</span></a></li>
+                <li class="nav-item"><a href="/admin/pending" class="nav-link"><i data-feather="activity" style="color: #0168f8"></i> <span>Admin.</span></a></li>
                 <li class="nav-item"><a href="/profile/1/stats" class="nav-link"><i data-feather="bar-chart-2" style="color: #0168f8"></i> <span>Stats.</span></a></li>
             @endif
 
-            <li class="nav-item"><a href="/links" class="nav-link"><i data-feather="link" style="color: #0168f8"></i> <span>Quick Links</span></a></li>
-            <li class="nav-item"><a href="/assets/home" class="nav-link"><i data-feather="link" style="color: #0168f8"></i> <span>Admin</span></a></li>
+            <!--li class="nav-item"><a href="/links" class="nav-link"><i data-feather="link" style="color: #0168f8"></i> <span>Quick Links</span></a></li-->
+            <li class="nav-item"><a href="/assets/home" class="nav-link"><i data-feather="link" style="color: #0168f8"></i> <span>Assets</span></a></li>
             <li class="nav-item"><a href="/home" class="nav-link"><i data-feather="bell" style="color: #0168f8"></i> <span>Notifications</span></a></li>
-            <li class="nav-item"><a href="/settings" class="nav-link"><i data-feather="settings" style="color: #0168f8"></i> <span>Settings</span></a></li>
+            <!--li class="nav-item"><a href="/settings" class="nav-link"><i data-feather="settings" style="color: #0168f8"></i> <span>Settings</span></a></li>
             <li class="nav-item"><a href="/mail" class="nav-link"><i data-feather="mail" style="color: #0168f8"></i> <span>Messages</span></a></li>
-            <li class="nav-item"><a href="/help" class="nav-link"><i data-feather="help-circle" style="color: #0168f8"></i> <span>Help Center</span></a></li>
+            <li class="nav-item"><a href="/help" class="nav-link"><i data-feather="help-circle" style="color: #0168f8"></i> <span>Help Center</span></a></li-->
             <li class="nav-item" title="Exit App"><a href="/help" class="nav-link"
                 onclick="event.preventDefault();
                  document.getElementById('logout-form').submit();"
@@ -234,7 +239,42 @@
             </div>
         </div>
     </div>
-</div>
+
+    <!--ALERTS-->
+    <div id="success" style="position: absolute; z-index: 15; bottom: 2px; right: 2px; width: 30vw; border-radius: 3px" class="bg-success text-light  hidden animate">
+        <div class="imgcontainer" style="margin: 0; padding: 0">
+            <span onclick="document.getElementById('success').style.display='none'"
+                  class="close text-light font-weight-bold" title="Close" style="margin: 0; padding: 0">&times;</span>
+        </div> <br>
+        <h5 class="text-center text-white">Success</h5>
+        <p class="pb-1 pl-1" id="successMessage">
+            Testing...... Testing..... Testing.
+        </p>
+    </div>
+
+    <div id="warning" style="position: absolute; z-index: 15; bottom: 2px; right: 2px; width: 30vw; border-radius: 3px" class="bg-warning shadow text-dark hidden animate">
+        <div class="imgcontainer" style="margin: 0; padding: 0">
+            <span onclick="cancelScan()" class="close text-danger font-weight-bold" title="Close" style="margin: 0; padding: 0">&times;</span>
+        </div> <br>
+        <h5 class="text-center text-dark">Warning</h5>
+        <p class="pb-1 pl-1" id="warningMessage">
+            Testing...... Testing..... Testing.
+        </p>
+    </div>
+
+    <div id="error" style="position: absolute; z-index: 15; bottom: 2px; right: 2px; width: 30vw; border-radius: 3px" class="text-white bg-danger shadow animate hidden">
+        <div class="imgcontainer" style="margin: 0; padding: 0">
+            <span onclick="cancelScan()" class="close text-danger font-weight-bold" title="Cancel" style="margin: 0; padding: 0">&times;</span>
+        </div> <br>
+        <h5 class="text-center text-white">Success</h5>
+        <p class="pb-1 pl-1" id="errorMessage">
+            Testing...... Testing..... Testing.
+        </p>
+    </div>
+
+    @include('notify::messages')
+    @notifyJs
+
 <script src="/js/jquery-1.12.4.js"></script>
 
 <script src="../../lib/bootstrap/js/bootstrap.bundle.min.js"></script>

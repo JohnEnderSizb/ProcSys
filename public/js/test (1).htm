@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Meta -->
+    <meta name="author" content="ThemePixels">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../../logo.png">
+
+    <title>Procurement</title>
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/vendor/mckenziearts/laravel-notify/css/notify.css"/>
+    <!-- vendor css -->
+    <link href="../../lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="../../lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="../../lib/jqvmap/jqvmap.min.css" rel="stylesheet">
+
+    <!-- DashForge CSS -->
+    <link rel="stylesheet" href="../../assets/css/dashforge.css">
+    <link rel="stylesheet" href="../../assets/css/dashforge.dashboard.css">
+
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <link rel="stylesheet" href="css/modal.css">
+
+    <!-- JQuery -->
+    <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <style>
+        .bg-img {
+            background: url("/img/combo.jpg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            min-height: 100vh;
+        }
+
+        .water-mark {
+            background: rgba(255, 255, 255, 0.95);
+            min-height: 100vh;
+        }
+
+        .nav-item :hover {
+            background: #0168f8;
+            color: #000000;
+        }
+
+        .nav-item :hover {
+            background: #cecece;
+        }
+
+        .modal {
+            display:none;
+            position: fixed;
+            z-index: 10;
+            right: 0;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: auto;
+            background-color: rgba(6, 14, 7, 0.77);
+            border-radius: 0px;
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+        .avatar {
+            width: 200px;
+            height:200px;
+            border-radius: 50%;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            /*margin: 4% auto 15% auto;
+            border: 1px solid #888;
+            width: 40%;*/
+            margin-top: 10%;
+            padding-bottom: 30px;
+            background: #FFF url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207'),
+            linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%) no-repeat, repeat right .7em top 50%, 0 0;
+            background-size: .65em auto, 100%;
+
+        }
+
+        /* The Close Button (x) */
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+        .close:hover,.close:focus {
+            color: red;
+            cursor: pointer;
+        }
+
+
+        /* Add Zoom Animation */
+        .animate {
+            animation: zoom 0.1s;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @keyframes  zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+
+    </style>
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/masterstyle.css">
+
+</head>
+<body style="background: #FAFAFA">
+
+<aside class="aside aside-fixed">
+    <div class="aside-header">
+        <a href="/home"
+           style="color: #0168f8"
+           class="aside-logo">Procurement</a>
+        <a href="" class="aside-menu-link">
+            <i data-feather="menu"></i>
+            <i data-feather="x"></i>
+        </a>
+    </div>
+    <div class="aside-body">
+
+        <div class="aside-loggedin bg-light p-2 shadow-sm" style="border-radius: 2px">
+            <div class="d-flex align-items-center justify-content-start">
+                <a href="/1/profile/view" class="avatar">
+                    <img src="/profile/darth.jpg" class="rounded-circle" alt="">
+                </a>
+            </div>
+            <div class="aside-loggedin-user">
+                <a style="text-decoration: none" href="#loggedinMenu" class="d-flex align-items-center justify-content-between mg-b-2" data-toggle="collapse" aria-expanded="false" aria-controls="loggedinMenu">
+                    <h6 class="tx-semibold mg-b-0" style="color: #0168f8">Johnson Andrew</h6>
+                    <i data-feather="chevron-down"></i>
+                </a>
+                <p class="tx-color-03 tx-12 mg-b-0">Administrator</p>
+            </div>
+            <div class="collapse " id="loggedinMenu">
+                <ul class="nav nav-aside mg-b-0">
+                    <li class="nav-item "><a href="/profile/1/view" class="nav-link"><i data-feather="edit"></i> <span>Edit Profile</span></a></li>
+                    <li class="nav-item"><a href="/account/settings" class="nav-link"><i data-feather="settings"></i> <span>Account Settings</span></a></li>
+                    <li class="nav-item">
+                        <a  href="http://127.0.0.1:8000/logout" class="nav-link"
+
+                            onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                        <i data-feather="log-out"></i>
+
+                          <span> Logout</span>
+                        </a>
+
+                        <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST" style="display: none;">
+                            <input type="hidden" name="_token" value="UR9hG1OBzjZjYtgzIkeNnfufucrNQHpV4ZlxztEy">                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- aside-loggedin -->
+
+        <ul class="nav nav-aside">
+            <li class="nav-item"><a href="/home" class="nav-link"><i data-feather="home" style="color: #0168f8"></i> <span>Home</span></a></li>
+
+            
+            <!--li class="nav-item"><a href="/links" class="nav-link"><i data-feather="link" style="color: #0168f8"></i> <span>Quick Links</span></a></li-->
+            <li class="nav-item"><a href="/assets/home" class="nav-link"><i data-feather="link" style="color: #0168f8"></i> <span>Assets</span></a></li>
+            <li class="nav-item"><a href="/home" class="nav-link"><i data-feather="bell" style="color: #0168f8"></i> <span>Notifications</span></a></li>
+            <!--li class="nav-item"><a href="/settings" class="nav-link"><i data-feather="settings" style="color: #0168f8"></i> <span>Settings</span></a></li>
+            <li class="nav-item"><a href="/mail" class="nav-link"><i data-feather="mail" style="color: #0168f8"></i> <span>Messages</span></a></li>
+            <li class="nav-item"><a href="/help" class="nav-link"><i data-feather="help-circle" style="color: #0168f8"></i> <span>Help Center</span></a></li-->
+            <li class="nav-item" title="Exit App"><a href="/help" class="nav-link"
+                onclick="event.preventDefault();
+                 document.getElementById('logout-form').submit();"
+                ><i data-feather="log-out" style="color: #0168f8"></i> <span>Log Out</span></a></li>
+        </ul>
+    </div>
+</aside>
+
+<div class="content ht-100v pd-0">
+
+    <div class="bg-img">
+        <div class="water-mark">
+            <div class="content-body">
+                <div class="container pd-x-0">
+                    <!--div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+                        <div>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+                                    <li class="breadcrumb-item mt-2"><a href="#">Dashboard</a></li>
+                                    <li class="breadcrumb-item active mt-2" aria-current="page">Sales Monitoring</li>
+                                    <li class="mt-1 ml-4">
+                                        <a href="#" title="Refresh">
+                                            <i data-feather="refresh-ccw" class="text-secondary" style="float: right; width: 18px"></i>
+                                        </a>
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+
+                    </div-->
+
+                    <div class="container-fluid">
+
+                        
+                    </div><!-- row -->
+                </div><!-- container -->
+            </div>
+        </div>
+    </div>
+
+    <!--ALERTS-->
+    <div id="success" style="position: absolute; z-index: 15; bottom: 2px; right: 2px; width: 30vw; border-radius: 3px" class="bg-success text-light  hidden animate">
+        <div class="imgcontainer" style="margin: 0; padding: 0">
+            <span onclick="document.getElementById('success').style.display='none'"
+                  class="close text-light font-weight-bold" title="Close" style="margin: 0; padding: 0">&times;</span>
+        </div> <br>
+        <h5 class="text-center text-white">Success</h5>
+        <p class="pb-1 pl-1" id="successMessage">
+            Testing...... Testing..... Testing.
+        </p>
+    </div>
+
+    <div id="warning" style="position: absolute; z-index: 15; bottom: 2px; right: 2px; width: 30vw; border-radius: 3px" class="bg-warning shadow text-dark hidden animate">
+        <div class="imgcontainer" style="margin: 0; padding: 0">
+            <span onclick="cancelScan()" class="close text-danger font-weight-bold" title="Close" style="margin: 0; padding: 0">&times;</span>
+        </div> <br>
+        <h5 class="text-center text-dark">Warning</h5>
+        <p class="pb-1 pl-1" id="warningMessage">
+            Testing...... Testing..... Testing.
+        </p>
+    </div>
+
+    <div id="error" style="position: absolute; z-index: 15; bottom: 2px; right: 2px; width: 30vw; border-radius: 3px" class="text-white bg-danger shadow animate hidden">
+        <div class="imgcontainer" style="margin: 0; padding: 0">
+            <span onclick="cancelScan()" class="close text-danger font-weight-bold" title="Cancel" style="margin: 0; padding: 0">&times;</span>
+        </div> <br>
+        <h5 class="text-center text-white">Success</h5>
+        <p class="pb-1 pl-1" id="errorMessage">
+            Testing...... Testing..... Testing.
+        </p>
+    </div>
+
+    <script>
+
+    var notify = {
+        timeout: "5000",
+        animatedIn: "bounceInRight",
+        animatedOut: "bounceOutRight",
+        position: "top-right"
+    }
+
+</script>
+    <script type="text/javascript" src="http://127.0.0.1:8000/vendor/mckenziearts/laravel-notify/js/notify.js"></script>
+<script src="/js/jquery-1.12.4.js"></script>
+
+<script src="../../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../lib/feather-icons/feather.min.js"></script>
+<script src="../../lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="../../lib/jquery.flot/jquery.flot.js"></script>
+<script src="../../lib/jquery.flot/jquery.flot.stack.js"></script>
+<script src="../../lib/jquery.flot/jquery.flot.resize.js"></script>
+<script src="../../lib/chart.js/Chart.bundle.min.js"></script>
+<script src="../../lib/jqvmap/jquery.vmap.min.js"></script>
+<script src="../../lib/jqvmap/maps/jquery.vmap.usa.js"></script>
+<script src="../../assets/js/dashforge.js"></script>
+<script src="../../assets/js/dashforge.aside.js"></script>
+<script src="../../assets/js/dashforge.sampledata.js"></script>
+<!-- append theme customizer -->
+<script src="../../lib/js-cookie/js.cookie.js"></script>
+<script src="js/home.js"></script>
+<script src="js/modal.js"></script>
+
+
+<script src="/js/masterscript.js"></script>
+<script src="/js/notify.js"></script>
+
+<link rel='stylesheet' type='text/css' property='stylesheet' href='//127.0.0.1:8000/_debugbar/assets/stylesheets?v=1581996158'><script type='text/javascript' src='//127.0.0.1:8000/_debugbar/assets/javascript?v=1581996157'></script><script type="text/javascript">jQuery.noConflict(true);</script>
+<script> Sfdump = window.Sfdump || (function (doc) { var refStyle = doc.createElement('style'), rxEsc = /([.*+?^${}()|\[\]\/\\])/g, idRx = /\bsf-dump-\d+-ref[012]\w+\b/, keyHint = 0 <= navigator.platform.toUpperCase().indexOf('MAC') ? 'Cmd' : 'Ctrl', addEventListener = function (e, n, cb) { e.addEventListener(n, cb, false); }; (doc.documentElement.firstElementChild || doc.documentElement.children[0]).appendChild(refStyle); if (!doc.addEventListener) { addEventListener = function (element, eventName, callback) { element.attachEvent('on' + eventName, function (e) { e.preventDefault = function () {e.returnValue = false;}; e.target = e.srcElement; callback(e); }); }; } function toggle(a, recursive) { var s = a.nextSibling || {}, oldClass = s.className, arrow, newClass; if (/\bsf-dump-compact\b/.test(oldClass)) { arrow = '▼'; newClass = 'sf-dump-expanded'; } else if (/\bsf-dump-expanded\b/.test(oldClass)) { arrow = '▶'; newClass = 'sf-dump-compact'; } else { return false; } if (doc.createEvent && s.dispatchEvent) { var event = doc.createEvent('Event'); event.initEvent('sf-dump-expanded' === newClass ? 'sfbeforedumpexpand' : 'sfbeforedumpcollapse', true, false); s.dispatchEvent(event); } a.lastChild.innerHTML = arrow; s.className = s.className.replace(/\bsf-dump-(compact|expanded)\b/, newClass); if (recursive) { try { a = s.querySelectorAll('.'+oldClass); for (s = 0; s < a.length; ++s) { if (-1 == a[s].className.indexOf(newClass)) { a[s].className = newClass; a[s].previousSibling.lastChild.innerHTML = arrow; } } } catch (e) { } } return true; }; function collapse(a, recursive) { var s = a.nextSibling || {}, oldClass = s.className; if (/\bsf-dump-expanded\b/.test(oldClass)) { toggle(a, recursive); return true; } return false; }; function expand(a, recursive) { var s = a.nextSibling || {}, oldClass = s.className; if (/\bsf-dump-compact\b/.test(oldClass)) { toggle(a, recursive); return true; } return false; }; function collapseAll(root) { var a = root.querySelector('a.sf-dump-toggle'); if (a) { collapse(a, true); expand(a); return true; } return false; } function reveal(node) { var previous, parents = []; while ((node = node.parentNode || {}) && (previous = node.previousSibling) && 'A' === previous.tagName) { parents.push(previous); } if (0 !== parents.length) { parents.forEach(function (parent) { expand(parent); }); return true; } return false; } function highlight(root, activeNode, nodes) { resetHighlightedNodes(root); Array.from(nodes||[]).forEach(function (node) { if (!/\bsf-dump-highlight\b/.test(node.className)) { node.className = node.className + ' sf-dump-highlight'; } }); if (!/\bsf-dump-highlight-active\b/.test(activeNode.className)) { activeNode.className = activeNode.className + ' sf-dump-highlight-active'; } } function resetHighlightedNodes(root) { Array.from(root.querySelectorAll('.sf-dump-str, .sf-dump-key, .sf-dump-public, .sf-dump-protected, .sf-dump-private')).forEach(function (strNode) { strNode.className = strNode.className.replace(/\bsf-dump-highlight\b/, ''); strNode.className = strNode.className.replace(/\bsf-dump-highlight-active\b/, ''); }); } return function (root, x) { root = doc.getElementById(root); var indentRx = new RegExp('^('+(root.getAttribute('data-indent-pad') || ' ').replace(rxEsc, '\\$1')+')+', 'm'), options = {"maxDepth":1,"maxStringLength":160,"fileLinkFormat":false}, elt = root.getElementsByTagName('A'), len = elt.length, i = 0, s, h, t = []; while (i < len) t.push(elt[i++]); for (i in x) { options[i] = x[i]; } function a(e, f) { addEventListener(root, e, function (e, n) { if ('A' == e.target.tagName) { f(e.target, e); } else if ('A' == e.target.parentNode.tagName) { f(e.target.parentNode, e); } else { n = /\bsf-dump-ellipsis\b/.test(e.target.className) ? e.target.parentNode : e.target; if ((n = n.nextElementSibling) && 'A' == n.tagName) { if (!/\bsf-dump-toggle\b/.test(n.className)) { n = n.nextElementSibling || n; } f(n, e, true); } } }); }; function isCtrlKey(e) { return e.ctrlKey || e.metaKey; } function xpathString(str) { var parts = str.match(/[^'"]+|['"]/g).map(function (part) { if ("'" == part) { return '"\'"'; } if ('"' == part) { return "'\"'"; } return "'" + part + "'"; }); return "concat(" + parts.join(",") + ", '')"; } function xpathHasClass(className) { return "contains(concat(' ', normalize-space(@class), ' '), ' " + className +" ')"; } addEventListener(root, 'mouseover', function (e) { if ('' != refStyle.innerHTML) { refStyle.innerHTML = ''; } }); a('mouseover', function (a, e, c) { if (c) { e.target.style.cursor = "pointer"; } else if (a = idRx.exec(a.className)) { try { refStyle.innerHTML = '.phpdebugbar pre.sf-dump .'+a[0]+'{background-color: #B729D9; color: #FFF !important; border-radius: 2px}'; } catch (e) { } } }); a('click', function (a, e, c) { if (/\bsf-dump-toggle\b/.test(a.className)) { e.preventDefault(); if (!toggle(a, isCtrlKey(e))) { var r = doc.getElementById(a.getAttribute('href').substr(1)), s = r.previousSibling, f = r.parentNode, t = a.parentNode; t.replaceChild(r, a); f.replaceChild(a, s); t.insertBefore(s, r); f = f.firstChild.nodeValue.match(indentRx); t = t.firstChild.nodeValue.match(indentRx); if (f && t && f[0] !== t[0]) { r.innerHTML = r.innerHTML.replace(new RegExp('^'+f[0].replace(rxEsc, '\\$1'), 'mg'), t[0]); } if (/\bsf-dump-compact\b/.test(r.className)) { toggle(s, isCtrlKey(e)); } } if (c) { } else if (doc.getSelection) { try { doc.getSelection().removeAllRanges(); } catch (e) { doc.getSelection().empty(); } } else { doc.selection.empty(); } } else if (/\bsf-dump-str-toggle\b/.test(a.className)) { e.preventDefault(); e = a.parentNode.parentNode; e.className = e.className.replace(/\bsf-dump-str-(expand|collapse)\b/, a.parentNode.className); } }); elt = root.getElementsByTagName('SAMP'); len = elt.length; i = 0; while (i < len) t.push(elt[i++]); len = t.length; for (i = 0; i < len; ++i) { elt = t[i]; if ('SAMP' == elt.tagName) { a = elt.previousSibling || {}; if ('A' != a.tagName) { a = doc.createElement('A'); a.className = 'sf-dump-ref'; elt.parentNode.insertBefore(a, elt); } else { a.innerHTML += ' '; } a.title = (a.title ? a.title+'\n[' : '[')+keyHint+'+click] Expand all children'; a.innerHTML += '<span>▼</span>'; a.className += ' sf-dump-toggle'; x = 1; if ('sf-dump' != elt.parentNode.className) { x += elt.parentNode.getAttribute('data-depth')/1; } elt.setAttribute('data-depth', x); var className = elt.className; elt.className = 'sf-dump-expanded'; if (className ? 'sf-dump-expanded' !== className : (x > options.maxDepth)) { toggle(a); } } else if (/\bsf-dump-ref\b/.test(elt.className) && (a = elt.getAttribute('href'))) { a = a.substr(1); elt.className += ' '+a; if (/[\[{]$/.test(elt.previousSibling.nodeValue)) { a = a != elt.nextSibling.id && doc.getElementById(a); try { s = a.nextSibling; elt.appendChild(a); s.parentNode.insertBefore(a, s); if (/^[@#]/.test(elt.innerHTML)) { elt.innerHTML += ' <span>▶</span>'; } else { elt.innerHTML = '<span>▶</span>'; elt.className = 'sf-dump-ref'; } elt.className += ' sf-dump-toggle'; } catch (e) { if ('&' == elt.innerHTML.charAt(0)) { elt.innerHTML = '…'; elt.className = 'sf-dump-ref'; } } } } } if (doc.evaluate && Array.from && root.children.length > 1) { root.setAttribute('tabindex', 0); SearchState = function () { this.nodes = []; this.idx = 0; }; SearchState.prototype = { next: function () { if (this.isEmpty()) { return this.current(); } this.idx = this.idx < (this.nodes.length - 1) ? this.idx + 1 : 0; return this.current(); }, previous: function () { if (this.isEmpty()) { return this.current(); } this.idx = this.idx > 0 ? this.idx - 1 : (this.nodes.length - 1); return this.current(); }, isEmpty: function () { return 0 === this.count(); }, current: function () { if (this.isEmpty()) { return null; } return this.nodes[this.idx]; }, reset: function () { this.nodes = []; this.idx = 0; }, count: function () { return this.nodes.length; }, }; function showCurrent(state) { var currentNode = state.current(), currentRect, searchRect; if (currentNode) { reveal(currentNode); highlight(root, currentNode, state.nodes); if ('scrollIntoView' in currentNode) { currentNode.scrollIntoView(true); currentRect = currentNode.getBoundingClientRect(); searchRect = search.getBoundingClientRect(); if (currentRect.top < (searchRect.top + searchRect.height)) { window.scrollBy(0, -(searchRect.top + searchRect.height + 5)); } } } counter.textContent = (state.isEmpty() ? 0 : state.idx + 1) + ' of ' + state.count(); } var search = doc.createElement('div'); search.className = 'sf-dump-search-wrapper sf-dump-search-hidden'; search.innerHTML = ' <input type="text" class="sf-dump-search-input"> <span class="sf-dump-search-count">0 of 0<\/span> <button type="button" class="sf-dump-search-input-previous" tabindex="-1"> <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1683 1331l-166 165q-19 19-45 19t-45-19L896 965l-531 531q-19 19-45 19t-45-19l-166-165q-19-19-19-45.5t19-45.5l742-741q19-19 45-19t45 19l742 741q19 19 19 45.5t-19 45.5z"\/><\/svg> <\/button> <button type="button" class="sf-dump-search-input-next" tabindex="-1"> <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1683 808l-742 741q-19 19-45 19t-45-19L109 808q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z"\/><\/svg> <\/button> '; root.insertBefore(search, root.firstChild); var state = new SearchState(); var searchInput = search.querySelector('.sf-dump-search-input'); var counter = search.querySelector('.sf-dump-search-count'); var searchInputTimer = 0; var previousSearchQuery = ''; addEventListener(searchInput, 'keyup', function (e) { var searchQuery = e.target.value; /* Don't perform anything if the pressed key didn't change the query */ if (searchQuery === previousSearchQuery) { return; } previousSearchQuery = searchQuery; clearTimeout(searchInputTimer); searchInputTimer = setTimeout(function () { state.reset(); collapseAll(root); resetHighlightedNodes(root); if ('' === searchQuery) { counter.textContent = '0 of 0'; return; } var classMatches = [ "sf-dump-str", "sf-dump-key", "sf-dump-public", "sf-dump-protected", "sf-dump-private", ].map(xpathHasClass).join(' or '); var xpathResult = doc.evaluate('.//span[' + classMatches + '][contains(translate(child::text(), ' + xpathString(searchQuery.toUpperCase()) + ', ' + xpathString(searchQuery.toLowerCase()) + '), ' + xpathString(searchQuery.toLowerCase()) + ')]', root, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null); while (node = xpathResult.iterateNext()) state.nodes.push(node); showCurrent(state); }, 400); }); Array.from(search.querySelectorAll('.sf-dump-search-input-next, .sf-dump-search-input-previous')).forEach(function (btn) { addEventListener(btn, 'click', function (e) { e.preventDefault(); -1 !== e.target.className.indexOf('next') ? state.next() : state.previous(); searchInput.focus(); collapseAll(root); showCurrent(state); }) }); addEventListener(root, 'keydown', function (e) { var isSearchActive = !/\bsf-dump-search-hidden\b/.test(search.className); if ((114 === e.keyCode && !isSearchActive) || (isCtrlKey(e) && 70 === e.keyCode)) { /* F3 or CMD/CTRL + F */ if (70 === e.keyCode && document.activeElement === searchInput) { /* * If CMD/CTRL + F is hit while having focus on search input, * the user probably meant to trigger browser search instead. * Let the browser execute its behavior: */ return; } e.preventDefault(); search.className = search.className.replace(/\bsf-dump-search-hidden\b/, ''); searchInput.focus(); } else if (isSearchActive) { if (27 === e.keyCode) { /* ESC key */ search.className += ' sf-dump-search-hidden'; e.preventDefault(); resetHighlightedNodes(root); searchInput.value = ''; } else if ( (isCtrlKey(e) && 71 === e.keyCode) /* CMD/CTRL + G */ || 13 === e.keyCode /* Enter */ || 114 === e.keyCode /* F3 */ ) { e.preventDefault(); e.shiftKey ? state.previous() : state.next(); collapseAll(root); showCurrent(state); } } }); } if (0 >= options.maxStringLength) { return; } try { elt = root.querySelectorAll('.sf-dump-str'); len = elt.length; i = 0; t = []; while (i < len) t.push(elt[i++]); len = t.length; for (i = 0; i < len; ++i) { elt = t[i]; s = elt.innerText || elt.textContent; x = s.length - options.maxStringLength; if (0 < x) { h = elt.innerHTML; elt[elt.innerText ? 'innerText' : 'textContent'] = s.substring(0, options.maxStringLength); elt.className += ' sf-dump-str-collapse'; elt.innerHTML = '<span class=sf-dump-str-collapse>'+h+'<a class="sf-dump-ref sf-dump-str-toggle" title="Collapse"> ◀</a></span>'+ '<span class=sf-dump-str-expand>'+elt.innerHTML+'<a class="sf-dump-ref sf-dump-str-toggle" title="'+x+' remaining characters"> ▶</a></span>'; } } } catch (e) { } }; })(document); </script><style> .phpdebugbar pre.sf-dump { display: block; white-space: pre; padding: 5px; overflow: initial !important; } .phpdebugbar pre.sf-dump:after { content: ""; visibility: hidden; display: block; height: 0; clear: both; } .phpdebugbar pre.sf-dump span { display: inline; } .phpdebugbar pre.sf-dump .sf-dump-compact { display: none; } .phpdebugbar pre.sf-dump a { text-decoration: none; cursor: pointer; border: 0; outline: none; color: inherit; } .phpdebugbar pre.sf-dump img { max-width: 50em; max-height: 50em; margin: .5em 0 0 0; padding: 0; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAHUlEQVQY02O8zAABilCaiQEN0EeA8QuUcX9g3QEAAjcC5piyhyEAAAAASUVORK5CYII=) #D3D3D3; } .phpdebugbar pre.sf-dump .sf-dump-ellipsis { display: inline-block; overflow: visible; text-overflow: ellipsis; max-width: 5em; white-space: nowrap; overflow: hidden; vertical-align: top; } .phpdebugbar pre.sf-dump .sf-dump-ellipsis+.sf-dump-ellipsis { max-width: none; } .phpdebugbar pre.sf-dump code { display:inline; padding:0; background:none; } .sf-dump-str-collapse .sf-dump-str-collapse { display: none; } .sf-dump-str-expand .sf-dump-str-expand { display: none; } .sf-dump-public.sf-dump-highlight, .sf-dump-protected.sf-dump-highlight, .sf-dump-private.sf-dump-highlight, .sf-dump-str.sf-dump-highlight, .sf-dump-key.sf-dump-highlight { background: rgba(111, 172, 204, 0.3); border: 1px solid #7DA0B1; border-radius: 3px; } .sf-dump-public.sf-dump-highlight-active, .sf-dump-protected.sf-dump-highlight-active, .sf-dump-private.sf-dump-highlight-active, .sf-dump-str.sf-dump-highlight-active, .sf-dump-key.sf-dump-highlight-active { background: rgba(253, 175, 0, 0.4); border: 1px solid #ffa500; border-radius: 3px; } .phpdebugbar pre.sf-dump .sf-dump-search-hidden { display: none !important; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper { font-size: 0; white-space: nowrap; margin-bottom: 5px; display: flex; position: -webkit-sticky; position: sticky; top: 5px; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > * { vertical-align: top; box-sizing: border-box; height: 21px; font-weight: normal; border-radius: 0; background: #FFF; color: #757575; border: 1px solid #BBB; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > input.sf-dump-search-input { padding: 3px; height: 21px; font-size: 12px; border-right: none; border-top-left-radius: 3px; border-bottom-left-radius: 3px; color: #000; min-width: 15px; width: 100%; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-next, .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-previous { background: #F2F2F2; outline: none; border-left: none; font-size: 0; line-height: 0; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-next { border-top-right-radius: 3px; border-bottom-right-radius: 3px; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-next > svg, .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-previous > svg { pointer-events: none; width: 12px; height: 12px; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-count { display: inline-block; padding: 0 5px; margin: 0; border-left: none; line-height: 21px; font-size: 12px; }.phpdebugbar pre.sf-dump, .phpdebugbar pre.sf-dump .sf-dump-default{word-wrap: break-word; white-space: pre-wrap; word-break: normal}.phpdebugbar pre.sf-dump .sf-dump-num{font-weight:bold; color:#1299DA}.phpdebugbar pre.sf-dump .sf-dump-const{font-weight:bold}.phpdebugbar pre.sf-dump .sf-dump-str{font-weight:bold; color:#3A9B26}.phpdebugbar pre.sf-dump .sf-dump-note{color:#1299DA}.phpdebugbar pre.sf-dump .sf-dump-ref{color:#7B7B7B}.phpdebugbar pre.sf-dump .sf-dump-public{color:#000000}.phpdebugbar pre.sf-dump .sf-dump-protected{color:#000000}.phpdebugbar pre.sf-dump .sf-dump-private{color:#000000}.phpdebugbar pre.sf-dump .sf-dump-meta{color:#B729D9}.phpdebugbar pre.sf-dump .sf-dump-key{color:#3A9B26}.phpdebugbar pre.sf-dump .sf-dump-index{color:#1299DA}.phpdebugbar pre.sf-dump .sf-dump-ellipsis{color:#A0A000}.phpdebugbar pre.sf-dump .sf-dump-ns{user-select:none;}.phpdebugbar pre.sf-dump .sf-dump-ellipsis-note{color:#1299DA}</style>
+<script type="text/javascript">
+var phpdebugbar = new PhpDebugBar.DebugBar();
+phpdebugbar.addIndicator("php_version", new PhpDebugBar.DebugBar.Indicator({"icon":"code","tooltip":"Version"}), "right");
+phpdebugbar.addTab("messages", new PhpDebugBar.DebugBar.Tab({"icon":"list-alt","title":"Messages", "widget": new PhpDebugBar.Widgets.MessagesWidget()}));
+phpdebugbar.addIndicator("time", new PhpDebugBar.DebugBar.Indicator({"icon":"clock-o","tooltip":"Request Duration"}), "right");
+phpdebugbar.addTab("timeline", new PhpDebugBar.DebugBar.Tab({"icon":"tasks","title":"Timeline", "widget": new PhpDebugBar.Widgets.TimelineWidget()}));
+phpdebugbar.addIndicator("memory", new PhpDebugBar.DebugBar.Indicator({"icon":"cogs","tooltip":"Memory Usage"}), "right");
+phpdebugbar.addTab("exceptions", new PhpDebugBar.DebugBar.Tab({"icon":"bug","title":"Exceptions", "widget": new PhpDebugBar.Widgets.ExceptionsWidget()}));
+phpdebugbar.addTab("views", new PhpDebugBar.DebugBar.Tab({"icon":"leaf","title":"Views", "widget": new PhpDebugBar.Widgets.TemplatesWidget()}));
+phpdebugbar.addTab("route", new PhpDebugBar.DebugBar.Tab({"icon":"share","title":"Route", "widget": new PhpDebugBar.Widgets.VariableListWidget()}));
+phpdebugbar.addIndicator("currentroute", new PhpDebugBar.DebugBar.Indicator({"icon":"share","tooltip":"Route"}), "right");
+phpdebugbar.addTab("queries", new PhpDebugBar.DebugBar.Tab({"icon":"database","title":"Queries", "widget": new PhpDebugBar.Widgets.LaravelSQLQueriesWidget()}));
+phpdebugbar.addTab("emails", new PhpDebugBar.DebugBar.Tab({"icon":"inbox","title":"Mails", "widget": new PhpDebugBar.Widgets.MailsWidget()}));
+phpdebugbar.addTab("gate", new PhpDebugBar.DebugBar.Tab({"icon":"list-alt","title":"Gate", "widget": new PhpDebugBar.Widgets.MessagesWidget()}));
+phpdebugbar.addTab("session", new PhpDebugBar.DebugBar.Tab({"icon":"archive","title":"Session", "widget": new PhpDebugBar.Widgets.VariableListWidget()}));
+phpdebugbar.addTab("request", new PhpDebugBar.DebugBar.Tab({"icon":"tags","title":"Request", "widget": new PhpDebugBar.Widgets.HtmlVariableListWidget()}));
+phpdebugbar.setDataMap({
+"php_version": ["php.version", ],
+"messages": ["messages.messages", []],
+"messages:badge": ["messages.count", null],
+"time": ["time.duration_str", '0ms'],
+"timeline": ["time", {}],
+"memory": ["memory.peak_usage_str", '0B'],
+"exceptions": ["exceptions.exceptions", []],
+"exceptions:badge": ["exceptions.count", null],
+"views": ["views", []],
+"views:badge": ["views.nb_templates", 0],
+"route": ["route", {}],
+"currentroute": ["route.uri", ],
+"queries": ["queries", []],
+"queries:badge": ["queries.nb_statements", 0],
+"emails": ["swiftmailer_mails.mails", []],
+"emails:badge": ["swiftmailer_mails.count", null],
+"gate": ["gate.messages", []],
+"gate:badge": ["gate.count", null],
+"session": ["session", {}],
+"request": ["request", {}]
+});
+phpdebugbar.restoreState();
+phpdebugbar.ajaxHandler = new PhpDebugBar.AjaxHandler(phpdebugbar, undefined, true);
+phpdebugbar.ajaxHandler.bindToXHR();
+phpdebugbar.setOpenHandler(new PhpDebugBar.OpenHandler({"url":"http:\/\/127.0.0.1:8000\/_debugbar\/open"}));
+phpdebugbar.addDataSet({"__meta":{"id":"Xaea8537b0c62d9baef0d3dd5e1050778","datetime":"2020-02-28 23:17:41","utime":1582931861.143032,"method":"GET","uri":"\/pdf\/test","ip":"127.0.0.1"},"php":{"version":"7.2.24","interface":"cli-server"},"messages":{"count":0,"messages":[]},"time":{"start":1582931860.885343,"end":1582931861.143059,"duration":0.25771594047546387,"duration_str":"257.72ms","measures":[{"label":"Booting","start":1582931860.885343,"relative_start":0,"end":1582931861.048702,"relative_end":1582931861.048702,"duration":0.1633589267730713,"duration_str":"163.36ms","params":[],"collector":null},{"label":"Application","start":1582931861.052301,"relative_start":0.16695785522460938,"end":1582931861.143061,"relative_end":1.9073486328125e-6,"duration":0.0907599925994873,"duration_str":"90.76ms","params":[],"collector":null}]},"memory":{"peak_usage":17270576,"peak_usage_str":"16.47MB"},"exceptions":{"count":0,"exceptions":[]},"views":{"nb_templates":2,"templates":[{"name":"home (\\resources\\views\\home.blade.php)","param_count":0,"params":[],"type":"blade"},{"name":"notify::messages (\\vendor\\mckenziearts\\laravel-notify\\resources\\views\\messages.blade.php)","param_count":4,"params":["obLevel","__env","app","errors"],"type":"blade"}]},"route":{"uri":"GET {any}","middleware":"web","controller":"App\\Http\\Controllers\\VueController@index","namespace":"App\\Http\\Controllers","prefix":null,"where":[],"file":"\\app\\Http\\Controllers\\VueController.php:9-12"},"queries":{"nb_statements":1,"nb_failed_statements":0,"accumulated_duration":0.00282,"accumulated_duration_str":"2.82ms","statements":[{"sql":"select * from `users` where `id` = 1 limit 1","type":"query","params":[],"bindings":["1"],"hints":["Use <code>SELECT *<\/code> only if you need all columns from table","<code>LIMIT<\/code> without <code>ORDER BY<\/code> causes non-deterministic results, depending on the query execution plan"],"backtrace":[{"index":15,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\EloquentUserProvider.php","line":52},{"index":16,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\SessionGuard.php","line":139},{"index":17,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\AuthManager.php","line":307},{"index":18,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php","line":261},{"index":19,"namespace":"view","name":"home","line":159},{"index":21,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php","line":59},{"index":22,"namespace":null,"name":"\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php","line":36},{"index":23,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php","line":143},{"index":24,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php","line":126},{"index":25,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php","line":91},{"index":26,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php","line":42},{"index":27,"namespace":null,"name":"\\vendor\\symfony\\http-foundation\\Response.php","line":202},{"index":28,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php","line":749},{"index":29,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php","line":721},{"index":30,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php","line":681},{"index":31,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php","line":130},{"index":32,"namespace":"middleware","name":"bindings","line":41},{"index":33,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php","line":171},{"index":34,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php","line":76},{"index":35,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php","line":171},{"index":36,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php","line":49},{"index":37,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php","line":171},{"index":38,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php","line":56},{"index":39,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php","line":171},{"index":40,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php","line":37},{"index":41,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php","line":171},{"index":42,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php","line":66},{"index":43,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php","line":171},{"index":44,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php","line":105},{"index":45,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php","line":683},{"index":46,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php","line":658},{"index":47,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php","line":624},{"index":48,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php","line":613},{"index":49,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php","line":170}],"duration":0.00282,"duration_str":"2.82ms","stmt_id":"\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\EloquentUserProvider.php:52","connection":"proc_database"}]},"swiftmailer_mails":{"count":0,"mails":[]},"gate":{"count":0,"messages":[]},"session":{"_token":"UR9hG1OBzjZjYtgzIkeNnfufucrNQHpV4ZlxztEy","_previous":"array:1 [\n  \"url\" => \"http:\/\/127.0.0.1:8000\/pdf\/test\"\n]","_flash":"array:2 [\n  \"old\" => []\n  \"new\" => []\n]","login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d":"1","isSupervisor":"false","url":"array:1 [\n  \"intended\" => \"http:\/\/127.0.0.1:8000\/home\"\n]","currentQR":"2","PHPDEBUGBAR_STACK_DATA":"[]"},"request":{"path_info":"\/pdf\/test","status_code":"<pre class=sf-dump id=sf-dump-1657151618 data-indent-pad=\"  \"><span class=sf-dump-num>200<\/span>\n<\/pre><script>Sfdump(\"sf-dump-1657151618\", {\"maxDepth\":0})<\/script>\n","status_text":"OK","format":"html","content_type":"text\/html; charset=UTF-8","request_query":"<pre class=sf-dump id=sf-dump-608964681 data-indent-pad=\"  \">[]\n<\/pre><script>Sfdump(\"sf-dump-608964681\", {\"maxDepth\":0})<\/script>\n","request_request":"<pre class=sf-dump id=sf-dump-1298551759 data-indent-pad=\"  \">[]\n<\/pre><script>Sfdump(\"sf-dump-1298551759\", {\"maxDepth\":0})<\/script>\n","request_headers":"<pre class=sf-dump id=sf-dump-768713124 data-indent-pad=\"  \"><span class=sf-dump-note>array:8<\/span> [<samp>\n  \"<span class=sf-dump-key>host<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"14 characters\">127.0.0.1:8000<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>connection<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"10 characters\">keep-alive<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>sec-fetch-site<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"11 characters\">same-origin<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>sec-fetch-mode<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"8 characters\">navigate<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>user-agent<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"133 characters\">Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/79.0.3945.130 Safari\/537.36 OPR\/66.0.3515.103<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>accept-encoding<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"17 characters\">gzip, deflate, br<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>accept-language<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"14 characters\">en-US,en;q=0.9<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>cookie<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"973 characters\">remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6IjNwYlhxQ2s1RmV2ejZKTjdsUnRDSHc9PSIsInZhbHVlIjoibDlLT3lNRVgzT3A1WEhTa0JUZnhVK2c0OW1JM0RhbVwvODJkTFBTS1FyMWJQU0pNK0tOOFYxZkNVZzhQN2dENnBQVmd1bkZyd0tER2hweXlGbjdtM2FrN3FNVzZEbE91NVM1THJFZUdsdUp3QWc5K0dwSm1tRk9ibEc1YTcyd0hUb3hOM1dcL1wvS1g2RlJNUVlvK1FUaTJGS3ZcL3NjY3Y1QnprWG5OVTg2NFpJZz0iLCJtYWMiOiI2ZTNkY2U0NzE4MzM2ODI1ZjczNjM2MjczYjljZWYwMTY1YzI0Yjk5YzdkYTZkMjNhZGU1NDZjODJhZjM2ZDE1In0%3D; XSRF-TOKEN=eyJpdiI6IjQrSU1FajJMZ2x3UjE0bW1oZ3hjdHc9PSIsInZhbHVlIjoiTEtkWFd1VE1ublwvZWFTWm10ZmsrV1d1d1RDVGQ1eUFCaGlGaGhrZkhTUlF4cDdHQ0JVQWl0YjB1KzZ1OEwzb1YiLCJtYWMiOiIwZTBlMjcxZDBiOWRjMzA3YTQ2MDJlN2FjY2U0MGNmNDRkNjk2YTk2YmUyM2MwOWE4Yzc4ZTM4MTk4ODQ5NGQ0In0%3D; laravel_session=eyJpdiI6Ik91TGRkZGxveVFLU2s0N0xXZklyUVE9PSIsInZhbHVlIjoiTmF4RjhOS09zdTJHZjhiaEkwcHJXZlNqVWxJRk1PMGtiT0dBYXVjWXV1UFlQVTUyVTlQYTJMWFVZVXd0Q2JBQiIsIm1hYyI6IjI1ZDQ0ZTMwNzhjMzZhZDRjZjBkZTIxNTAwYzkxMDY4NzJmMGI0ODQ2MDU4M2E3MDIyMTM1OGM0MDQ1ZmJjMjYifQ%3D%3D<\/span>\"\n  <\/samp>]\n<\/samp>]\n<\/pre><script>Sfdump(\"sf-dump-768713124\", {\"maxDepth\":0})<\/script>\n","request_server":"<pre class=sf-dump id=sf-dump-1094977468 data-indent-pad=\"  \"><span class=sf-dump-note>array:23<\/span> [<samp>\n  \"<span class=sf-dump-key>DOCUMENT_ROOT<\/span>\" => \"<span class=sf-dump-str title=\"55 characters\">C:\\Users\\JSiziba\\Desktop\\Procurement\\Procurement\\public<\/span>\"\n  \"<span class=sf-dump-key>REMOTE_ADDR<\/span>\" => \"<span class=sf-dump-str title=\"9 characters\">127.0.0.1<\/span>\"\n  \"<span class=sf-dump-key>REMOTE_PORT<\/span>\" => \"<span class=sf-dump-str title=\"5 characters\">63678<\/span>\"\n  \"<span class=sf-dump-key>SERVER_SOFTWARE<\/span>\" => \"<span class=sf-dump-str title=\"29 characters\">PHP 7.2.24 Development Server<\/span>\"\n  \"<span class=sf-dump-key>SERVER_PROTOCOL<\/span>\" => \"<span class=sf-dump-str title=\"8 characters\">HTTP\/1.1<\/span>\"\n  \"<span class=sf-dump-key>SERVER_NAME<\/span>\" => \"<span class=sf-dump-str title=\"9 characters\">127.0.0.1<\/span>\"\n  \"<span class=sf-dump-key>SERVER_PORT<\/span>\" => \"<span class=sf-dump-str title=\"4 characters\">8000<\/span>\"\n  \"<span class=sf-dump-key>REQUEST_URI<\/span>\" => \"<span class=sf-dump-str title=\"9 characters\">\/pdf\/test<\/span>\"\n  \"<span class=sf-dump-key>REQUEST_METHOD<\/span>\" => \"<span class=sf-dump-str title=\"3 characters\">GET<\/span>\"\n  \"<span class=sf-dump-key>SCRIPT_NAME<\/span>\" => \"<span class=sf-dump-str title=\"10 characters\">\/index.php<\/span>\"\n  \"<span class=sf-dump-key>SCRIPT_FILENAME<\/span>\" => \"<span class=sf-dump-str title=\"65 characters\">C:\\Users\\JSiziba\\Desktop\\Procurement\\Procurement\\public\\index.php<\/span>\"\n  \"<span class=sf-dump-key>PATH_INFO<\/span>\" => \"<span class=sf-dump-str title=\"9 characters\">\/pdf\/test<\/span>\"\n  \"<span class=sf-dump-key>PHP_SELF<\/span>\" => \"<span class=sf-dump-str title=\"19 characters\">\/index.php\/pdf\/test<\/span>\"\n  \"<span class=sf-dump-key>HTTP_HOST<\/span>\" => \"<span class=sf-dump-str title=\"14 characters\">127.0.0.1:8000<\/span>\"\n  \"<span class=sf-dump-key>HTTP_CONNECTION<\/span>\" => \"<span class=sf-dump-str title=\"10 characters\">keep-alive<\/span>\"\n  \"<span class=sf-dump-key>HTTP_SEC_FETCH_SITE<\/span>\" => \"<span class=sf-dump-str title=\"11 characters\">same-origin<\/span>\"\n  \"<span class=sf-dump-key>HTTP_SEC_FETCH_MODE<\/span>\" => \"<span class=sf-dump-str title=\"8 characters\">navigate<\/span>\"\n  \"<span class=sf-dump-key>HTTP_USER_AGENT<\/span>\" => \"<span class=sf-dump-str title=\"133 characters\">Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/79.0.3945.130 Safari\/537.36 OPR\/66.0.3515.103<\/span>\"\n  \"<span class=sf-dump-key>HTTP_ACCEPT_ENCODING<\/span>\" => \"<span class=sf-dump-str title=\"17 characters\">gzip, deflate, br<\/span>\"\n  \"<span class=sf-dump-key>HTTP_ACCEPT_LANGUAGE<\/span>\" => \"<span class=sf-dump-str title=\"14 characters\">en-US,en;q=0.9<\/span>\"\n  \"<span class=sf-dump-key>HTTP_COOKIE<\/span>\" => \"<span class=sf-dump-str title=\"973 characters\">remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6IjNwYlhxQ2s1RmV2ejZKTjdsUnRDSHc9PSIsInZhbHVlIjoibDlLT3lNRVgzT3A1WEhTa0JUZnhVK2c0OW1JM0RhbVwvODJkTFBTS1FyMWJQU0pNK0tOOFYxZkNVZzhQN2dENnBQVmd1bkZyd0tER2hweXlGbjdtM2FrN3FNVzZEbE91NVM1THJFZUdsdUp3QWc5K0dwSm1tRk9ibEc1YTcyd0hUb3hOM1dcL1wvS1g2RlJNUVlvK1FUaTJGS3ZcL3NjY3Y1QnprWG5OVTg2NFpJZz0iLCJtYWMiOiI2ZTNkY2U0NzE4MzM2ODI1ZjczNjM2MjczYjljZWYwMTY1YzI0Yjk5YzdkYTZkMjNhZGU1NDZjODJhZjM2ZDE1In0%3D; XSRF-TOKEN=eyJpdiI6IjQrSU1FajJMZ2x3UjE0bW1oZ3hjdHc9PSIsInZhbHVlIjoiTEtkWFd1VE1ublwvZWFTWm10ZmsrV1d1d1RDVGQ1eUFCaGlGaGhrZkhTUlF4cDdHQ0JVQWl0YjB1KzZ1OEwzb1YiLCJtYWMiOiIwZTBlMjcxZDBiOWRjMzA3YTQ2MDJlN2FjY2U0MGNmNDRkNjk2YTk2YmUyM2MwOWE4Yzc4ZTM4MTk4ODQ5NGQ0In0%3D; laravel_session=eyJpdiI6Ik91TGRkZGxveVFLU2s0N0xXZklyUVE9PSIsInZhbHVlIjoiTmF4RjhOS09zdTJHZjhiaEkwcHJXZlNqVWxJRk1PMGtiT0dBYXVjWXV1UFlQVTUyVTlQYTJMWFVZVXd0Q2JBQiIsIm1hYyI6IjI1ZDQ0ZTMwNzhjMzZhZDRjZjBkZTIxNTAwYzkxMDY4NzJmMGI0ODQ2MDU4M2E3MDIyMTM1OGM0MDQ1ZmJjMjYifQ%3D%3D<\/span>\"\n  \"<span class=sf-dump-key>REQUEST_TIME_FLOAT<\/span>\" => <span class=sf-dump-num>1582931860.8853<\/span>\n  \"<span class=sf-dump-key>REQUEST_TIME<\/span>\" => <span class=sf-dump-num>1582931860<\/span>\n<\/samp>]\n<\/pre><script>Sfdump(\"sf-dump-1094977468\", {\"maxDepth\":0})<\/script>\n","request_cookies":"<pre class=sf-dump id=sf-dump-1277105485 data-indent-pad=\"  \"><span class=sf-dump-note>array:3<\/span> [<samp>\n  \"<span class=sf-dump-key>remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d<\/span>\" => \"<span class=sf-dump-str title=\"123 characters\">1|90HAeipn8r5tANo2tH8ag7vwp9OYVa47Ax8H0Z6lvriykNEYvmWqCpUKMaQH|$2y$10$UKtyQnsaducclTuSUTtRs.GDkdRtuSlg\/sTqbU8Wgl\/ZVTrZaiU92<\/span>\"\n  \"<span class=sf-dump-key>XSRF-TOKEN<\/span>\" => \"<span class=sf-dump-str title=\"40 characters\">UR9hG1OBzjZjYtgzIkeNnfufucrNQHpV4ZlxztEy<\/span>\"\n  \"<span class=sf-dump-key>laravel_session<\/span>\" => \"<span class=sf-dump-str title=\"40 characters\">zo1SfYoZQoCwxGXYmug0iWuzcspm1n9enU6c8P1J<\/span>\"\n<\/samp>]\n<\/pre><script>Sfdump(\"sf-dump-1277105485\", {\"maxDepth\":0})<\/script>\n","response_headers":"<pre class=sf-dump id=sf-dump-1732410881 data-indent-pad=\"  \"><span class=sf-dump-note>array:5<\/span> [<samp>\n  \"<span class=sf-dump-key>cache-control<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"17 characters\">no-cache, private<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>date<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"29 characters\">Fri, 28 Feb 2020 23:17:41 GMT<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>content-type<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"24 characters\">text\/html; charset=UTF-8<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>set-cookie<\/span>\" => <span class=sf-dump-note>array:2<\/span> [<samp>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"318 characters\">XSRF-TOKEN=eyJpdiI6IlpNVW82ajV6bTVVaE9tdlQzYkxHb2c9PSIsInZhbHVlIjoicFpQd1hIMklPRW9uMW5jZG5yWmVOZ3dNV2lUeUdzV3hHSHkraDBqTTQ0R3pCQUlUNU9cL3JndHR5QWZaU2NRVDgiLCJtYWMiOiJjNjQ0MjJlMjVjN2FjYmMxOTE1NjY3N2U3YzcyZTZjMzFlZGZjMGMwNjU0ZWY3NjQyNDM0ZTg2OGQwYWFhZTI3In0%3D; expires=Sat, 29-Feb-2020 01:17:41 GMT; Max-Age=7200; path=\/<\/span>\"\n    <span class=sf-dump-index>1<\/span> => \"<span class=sf-dump-str title=\"333 characters\">laravel_session=eyJpdiI6ImJacEx1TDlWbzhFcGF1bjlhd0NCOGc9PSIsInZhbHVlIjoieEt1cWh4Y3liOXdKa2xcL1EzY1BwSTBFY0JURWhsc1VwT2M4bXNkbkE2amJsYjErdXhHSjFPbGtOY2tuYk5acDQiLCJtYWMiOiIwOTU3NTY4ZGVjZGJmZDUxZWY2MWQzMjUwZmRhNmEzMmIxM2U2MjZkYzI1MGU0ZjVjNTgwYzcxYmU0OWFlM2E0In0%3D; expires=Sat, 29-Feb-2020 01:17:41 GMT; Max-Age=7200; path=\/; httponly<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>Set-Cookie<\/span>\" => <span class=sf-dump-note>array:2<\/span> [<samp>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"304 characters\">XSRF-TOKEN=eyJpdiI6IlpNVW82ajV6bTVVaE9tdlQzYkxHb2c9PSIsInZhbHVlIjoicFpQd1hIMklPRW9uMW5jZG5yWmVOZ3dNV2lUeUdzV3hHSHkraDBqTTQ0R3pCQUlUNU9cL3JndHR5QWZaU2NRVDgiLCJtYWMiOiJjNjQ0MjJlMjVjN2FjYmMxOTE1NjY3N2U3YzcyZTZjMzFlZGZjMGMwNjU0ZWY3NjQyNDM0ZTg2OGQwYWFhZTI3In0%3D; expires=Sat, 29-Feb-2020 01:17:41 GMT; path=\/<\/span>\"\n    <span class=sf-dump-index>1<\/span> => \"<span class=sf-dump-str title=\"319 characters\">laravel_session=eyJpdiI6ImJacEx1TDlWbzhFcGF1bjlhd0NCOGc9PSIsInZhbHVlIjoieEt1cWh4Y3liOXdKa2xcL1EzY1BwSTBFY0JURWhsc1VwT2M4bXNkbkE2amJsYjErdXhHSjFPbGtOY2tuYk5acDQiLCJtYWMiOiIwOTU3NTY4ZGVjZGJmZDUxZWY2MWQzMjUwZmRhNmEzMmIxM2U2MjZkYzI1MGU0ZjVjNTgwYzcxYmU0OWFlM2E0In0%3D; expires=Sat, 29-Feb-2020 01:17:41 GMT; path=\/; httponly<\/span>\"\n  <\/samp>]\n<\/samp>]\n<\/pre><script>Sfdump(\"sf-dump-1732410881\", {\"maxDepth\":0})<\/script>\n","session_attributes":"<pre class=sf-dump id=sf-dump-1973952049 data-indent-pad=\"  \"><span class=sf-dump-note>array:8<\/span> [<samp>\n  \"<span class=sf-dump-key>_token<\/span>\" => \"<span class=sf-dump-str title=\"40 characters\">UR9hG1OBzjZjYtgzIkeNnfufucrNQHpV4ZlxztEy<\/span>\"\n  \"<span class=sf-dump-key>_previous<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp>\n    \"<span class=sf-dump-key>url<\/span>\" => \"<span class=sf-dump-str title=\"30 characters\">http:\/\/127.0.0.1:8000\/pdf\/test<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>_flash<\/span>\" => <span class=sf-dump-note>array:2<\/span> [<samp>\n    \"<span class=sf-dump-key>old<\/span>\" => []\n    \"<span class=sf-dump-key>new<\/span>\" => []\n  <\/samp>]\n  \"<span class=sf-dump-key>login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d<\/span>\" => <span class=sf-dump-num>1<\/span>\n  \"<span class=sf-dump-key>isSupervisor<\/span>\" => <span class=sf-dump-const>false<\/span>\n  \"<span class=sf-dump-key>url<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp>\n    \"<span class=sf-dump-key>intended<\/span>\" => \"<span class=sf-dump-str title=\"26 characters\">http:\/\/127.0.0.1:8000\/home<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>currentQR<\/span>\" => <span class=sf-dump-num>2<\/span>\n  \"<span class=sf-dump-key>PHPDEBUGBAR_STACK_DATA<\/span>\" => []\n<\/samp>]\n<\/pre><script>Sfdump(\"sf-dump-1973952049\", {\"maxDepth\":0})<\/script>\n"}}, "Xaea8537b0c62d9baef0d3dd5e1050778");
+
+</script>
+</body>
+</html>

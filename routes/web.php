@@ -33,6 +33,14 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth', 'profile', 'isSupervisor')->group(function () {
     //ASSETS
     Route::get('/home', 'ProcurementController@index');
+    Route::get('/home/approved', 'ProcurementController@approved');
+    Route::get('/home/collected', 'ProcurementController@collected');
+    Route::get('/home/rejected', 'ProcurementController@rejected');
+
+    Route::get('/admin/pending', 'ProcurementController@adminPending');
+    Route::get('/admin/approved', 'ProcurementController@adminApproved');
+    Route::get('/admin/rejected', 'ProcurementController@adminRejected');
+
     Route::get('/test', 'ProcurementController@test')->name('test');
     Route::get('/links', 'ProcurementController@links')->name('links');
     Route::get('/settings', 'ProcurementController@settings')->name('settings');
@@ -68,7 +76,15 @@ Route::middleware('auth', 'profile', 'isSupervisor')->group(function () {
     Route::post('/assets/manage/approve', 'AssetsController@approve');
     Route::post('/assets/manage/decline', 'AssetsController@decline');
     Route::post('/assets/manage/notAvailable', 'AssetsController@notAvailable');
+    Route::post('/assets/manage/markForCollection', 'AssetsController@markForCollection');
+    Route::post('/assets/collect', 'AssetsController@collectPaper');
+    //Route::get('/assets/collect', 'AssetsController@collectPaper');
+    Route::post('/app/collect/check', 'AssetsController@collectAppCheck');
 
+    //PDFs
+    Route::get('/pdf/test', 'PdfsController@test');
+    Route::get('/pdf', 'PdfsController@pdf');
+    Route::get('/excell', 'PdfsController@excell');
 
     //TESTING
     Route::get('/test/testing', 'TestController@test');
@@ -89,6 +105,12 @@ Route::get('/{any}', 'VueController@index')->where('any', '.*');
 
 Route::post('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
 
+////TESTS
+Route::get('send', 'NotifyController@index');
 
+Route::get('mail', function () {
+    $order = App\Specification::find(1);
 
-
+    return (new App\Notifications\StatusUpdate($order))
+        ->toMail($order->name);
+});

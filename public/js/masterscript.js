@@ -29,11 +29,12 @@
              console.log(response.status);
              if (response.status == "done") {
                  $("#"+specificationID).hide('slow');
+                 $.notify("Approved", "success");
              }
 
          }, error:function () {
              //error
-             alert("An Error Occured");
+             $.notify("An Error Occured", "error");
          }
      });
  }
@@ -50,11 +51,12 @@
              console.log(response.status);
              if (response.status == "done") {
                  $("#"+specificationID).hide('slow');
+                 $.notify("Done", "success");
              }
 
          }, error:function () {
              //error
-            alert("An Error Occured");
+             $.notify("An Error Occured", "error");
          }
      });
  }

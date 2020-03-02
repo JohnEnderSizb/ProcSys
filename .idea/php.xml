@@ -95,6 +95,7 @@
       <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+<<<<<<< HEAD
       <path value="$PROJECT_DIR$/vendor/vendor/phpdocumentor" />
       <path value="$PROJECT_DIR$/vendor/vendor/jakub-onderka" />
       <path value="$PROJECT_DIR$/vendor/vendor/maximebf" />
@@ -129,6 +130,18 @@
       <path value="$PROJECT_DIR$/vendor/vendor/scrivo" />
       <path value="$PROJECT_DIR$/vendor/vendor/phpspec" />
       <path value="$PROJECT_DIR$/vendor/vendor/egulias" />
+=======
+      <path value="$PROJECT_DIR$/vendor/mckenziearts/laravel-notify" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
+>>>>>>> 1f6f6545e6859d5e45ba8d1d57af01bb936ffe09
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

@@ -40,3 +40,16 @@
 * Declined
 * Ready for collection
 * Not Available
+
+#
+#
+#Todo
+* QR Code use ID
+* QR Code Verification
+#
+#Todo
+* Notifications
+* UI
+* Search
+* Logs
+* Notifications

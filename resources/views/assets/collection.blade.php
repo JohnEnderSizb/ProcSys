@@ -104,10 +104,6 @@
             <th>User</th>
             <th>Position</th>
             <th>Specification</th>
-            <th>Description</th>
-            <th>Priority</th>
-            <th>Due Date</th>
-            <th>Status</th>
             <th>View</th>
         </tr>
         @foreach($specifications as  $specification)
@@ -117,10 +113,6 @@
                 <td>{{ $specification->user->name }}</td>
                 <td>{{ $specification->user->profile->jobTitle }}</td>
                 <td>{{ $specification->name }}</td>
-                <td>{{ $specification->description }}</td>
-                <td>{{ $specification->priority }}</td>
-                <td>{{ $specification->due_date }}</td>
-                <td>{{ $specification->status }}</td>
                 <td class="align-content-center text-center pt-2">
                     <a href="#" class="" title="Manage" onclick="manage({{ $specification->id }})">
                         <i data-feather="edit" style="color: #0168f8"></i>
@@ -152,20 +144,12 @@
                                 <th>User</th>
                                 <th>Position</th>
                                 <th>Specification</th>
-                                <th>Description</th>
-                                <th>Priority</th>
-                                <th>Due Date</th>
-                                <th>Status</th>
                             </tr>
                             <tr>
                                 <td id="date"></td>
                                 <td id="user"></td>
                                 <td id="position"></td>
                                 <td id="specification"></td>
-                                <td id="description"></td>
-                                <td id="priority"></td>
-                                <td id="due_date"></td>
-                                <td id="status"></td>
                             </tr>
                         </table>
                     </div>
@@ -180,7 +164,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-sm-12">
                                 <h5 class="text-center">
-                                    <button class="btn btn-outline-info" onclick="document.getElementById('scan-code').style.display='block'">Scan QR-Code</button>
+                                    <button class="btn btn-outline-info" onclick="collectApp()">Scan QR-Code</button>
                                 </h5>
                                 <p class="ml-3" style="display: none">
                                     <img class="card-img-right flex-auto d-none d-md-block" style="" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')
@@ -216,12 +200,12 @@
                         </div>
 
                         <div class="form-group">
-                            <input style="width: 80%; margin: auto" class="form-control" type="password" name="password" id="password" placeholder="Password">
+                            <input style="width: 80%; margin: auto" class="form-control" type="text" id="thePassword" placeholder="Password" value="" autocomplete="off">
                         </div>
 
                         <div class="form-group">
                             <br>
-                            <button class="btn btn-primary" type="submit">Submit</button>
+                            <button onclick="collectPaper()" class="btn btn-primary" type="submit">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -239,7 +223,7 @@
             <div class="col-lg-10 col-md-10 col-sm-12 col-sm-12">
                 <div class="modal-content animate">
                     <div class="imgcontainer">
-                        <span onclick="document.getElementById('scan-code').style.display='none'" class="close text-danger font-weight-bold" title="Cancel">&times;</span>
+                        <span onclick="cancelScan()" class="close text-danger font-weight-bold" title="Cancel">&times;</span>
                     </div>
                     <br>
                     <div style="width: 80%; margin: auto" class="mt-3 mb-3 text-center">
@@ -268,6 +252,15 @@
 @section('scripts')
     var currentID;
     <script>
+        var scanOpen = false;
+
+        $(function(){
+            var passElem = $("input#thePassword");
+            passElem.focus(function() {
+                passElem.prop("type", "password");
+            });
+        });
+
         function manage(theId) {
             currentID = theId;
 
@@ -285,10 +278,6 @@
                     $('#specification').text(specification.name);
                     $('#user').text(response.userName);
                     $('#position').text(response.jobTitle);
-                    $('#description').text(specification.description);
-                    $('#priority').text(specification.priority);
-                    $('#due_date').text(specification.due_date);
-                    $('#status').text(specification.status);
                 }, error:function () {
                     //error
                     alert("An Error Occured");
@@ -298,114 +287,68 @@
            document.getElementById('changeDetailsForm').style.display='block';
         }
 
-
-        $("#approveCheckbox").change(function() {
-            if(this.checked) {
-                $("#declineCheckbox").prop("checked", false);
-                $("#notAvailableCheckbox").prop("checked", false);
-                $('#decline-submit').hide();
-                $('#na-submit').hide();
-                $('#approve-submit').show();
-            }
-            else {
-                $('#approve-submit').hide();
-            }
-        });
-
-        $("#declineCheckbox").change(function() {
-            if(this.checked) {
-                $("#approveCheckbox").prop("checked", false);
-                $("#notAvailableCheckbox").prop("checked", false);
-                $('#decline-submit').show();
-                $('#na-submit').hide();
-                $('#approve-submit').hide();
-            }
-            else {
-                $('#decline-submit').hide();
-            }
-        });
-
-        $("#notAvailableCheckbox").change(function() {
-            if(this.checked) {
-                $("#declineCheckbox").prop("checked", false);
-                $("#approveCheckbox").prop("checked", false);
-                $('#decline-submit').hide();
-                $('#approve-submit').hide();
-                $('#na-submit').show();
-            }
-            else {
-                $('#na-submit').hide();
-            }
-        });
-
-        function  approve() {
-            console.log("Approve " + currentID);
+        function collectPaper() {
+            thePassword = $("#thePassword").val().trim();
             $.ajax({
                 type:'POST',
-                url:'/assets/manage/approve',
+                url:'/assets/collect',
                 data:{
+                    password: thePassword,
                     theID: currentID,
                 },
                 success:function(response) {
-                    //success
-                    console.log(response.status);
-                    $('#changeDetailsForm').hide('fast');
-                    $('#'+ currentID).hide();
+                    //alert(response.outcome);
+                    $.notify("Success!", "success");
+                    if(response.outcome == "success"){
+                        $("#user-password").hide();
+                        $("#changeDetailsForm").hide();
+                        $('#'+ currentID).hide();
+                    }
+                    else {
+                        $.notify("Incorrect Password!", "warn");
+                    }
                 }, error:function () {
-                    //error
-                    alert("An Error Occured");
-                }
-            });
-
-        }
-
-        function decline() {
-            console.log("Decline " + currentID);
-            reason = $("#reason").val().trim();
-
-            if(reason == ""){
-                return;
-            }
-
-            $.ajax({
-                type:'POST',
-                url:'/assets/manage/decline',
-                data:{
-                    theID: currentID,
-                    reason: reason,
-                },
-                success:function(response) {
-                    //success
-                    console.log(response.status);
-                    $('#changeDetailsForm').hide('fast');
-                    $('#'+ currentID).hide();
-                }, error:function () {
-                    //error
-                    alert("An Error Occured");
+                    $.notify("An error occured!", "error");
                 }
             });
         }
 
-        function notAvailable() {
-            console.log("Decline " + currentID);
-            console.log("Approve " + currentID);
+        function collectApp() {
+            document.getElementById('scan-code').style.display='block';
+            scanOpen = true;
+            check();
+            $.notify("Collector scan the QR Code", "info");
+
+        }
+
+        function check() {
             $.ajax({
                 type:'POST',
-                url:'/assets/manage/notAvailable',
+                url:'/app/collect/check',
                 data:{
                     theID: currentID,
                 },
                 success:function(response) {
-                    //success
-                    console.log(response.status);
-                    $('#changeDetailsForm').hide('fast');
-                    $('#'+ currentID).hide();
+                    if(response.outcome == "success"){
+                        $("#scan-code").hide();
+                        $("#changeDetailsForm").hide();
+                        $('#'+ currentID).hide();
+                        $.notify("Done!", "success");
+                    }
+                    else {
+                        if(scanOpen == true) {
+                            setTimeout(check, 3000);
+                        }
+                    }
                 }, error:function () {
-                    //error
-                    alert("An Error Occured");
+                    $.notify("An error occured!", "error");
                 }
             });
-            console.log("Not Available " + currentID);
+        }
+
+        function cancelScan() {
+            document.getElementById('scan-code').style.display='none';
+            scanOpen = false;
         }
 
     </script>
