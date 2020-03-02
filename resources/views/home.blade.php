@@ -13,6 +13,8 @@
 
     <title>Requisitions</title>
 
+    <script src="/js/notify.min.js"></script>
+
     <!-- vendor css -->
     <link href="../../lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="../../lib/ionicons/css/ionicons.min.css" rel="stylesheet">
@@ -254,6 +256,7 @@
 
 
 <script src="/js/masterscript.js"></script>
+<script src="/js/notify.min.js"></script>
 
 @yield('scripts')
 </body>

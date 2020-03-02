@@ -280,5 +280,7 @@ Nostalgia food
 @endsection
 
 @section('scripts')
-
+    <script>
+        $(".elem-demo").notify("Hello Box");
+    </script>
     @endsection
