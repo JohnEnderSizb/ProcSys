@@ -107,8 +107,7 @@
             <th>Description</th>
             <th>Priority</th>
             <th>Due Date</th>
-            <th>Status</th>
-            <th>View</th>
+            <th>Mark For Collection</th>
         </tr>
         @foreach($specifications as  $specification)
 
@@ -120,11 +119,10 @@
                 <td>{{ $specification->description }}</td>
                 <td>{{ $specification->priority }}</td>
                 <td>{{ $specification->due_date }}</td>
-                <td>{{ $specification->status }}</td>
                 <td class="align-content-center text-center pt-2">
-                    <a href="#" class="" title="Manage" onclick="manage({{ $specification->id }})">
-                        <i data-feather="edit" style="color: #0168f8"></i>
-                    </a>
+                    <button class="btn btn-outline-success" onclick="markForCollection({{ $specification->id }})">
+                        <i data-feather="check" ></i>
+                    </button>
                 </td>
             </tr>
 
@@ -132,230 +130,26 @@
 
     </table>
 
-
-    <div id="changeDetailsForm" class="modal container-fluid">
-        <div class= "row">
-            <div class="col-lg-1 col-md-1 col-sm-12 col-sm-12">
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-12 col-sm-12">
-                <div class="modal-content animate">
-                    <div class="imgcontainer">
-                        <span onclick="document.getElementById('changeDetailsForm').style.display='none'" class="close text-danger font-weight-bold" title="Cancel">&times;</span>
-                    </div>
-                    <div class="text-center">
-                        <h4 style="width: 50%; margin: auto; padding: 3px; padding-bottom:5px" class="bg-primary text-white">Manage</h4> <br>
-                    </div>
-                    <div class="container table-responsive-lg">
-                        <table class="table table-sm table-striped table-bordered">
-                            <tr>
-                                <th>Date</th>
-                                <th>User</th>
-                                <th>Position</th>
-                                <th>Specification</th>
-                                <th>Description</th>
-                                <th>Priority</th>
-                                <th>Due Date</th>
-                                <th>Status</th>
-                            </tr>
-                            <tr>
-                                <td id="date"></td>
-                                <td id="user"></td>
-                                <td id="position"></td>
-                                <td id="specification"></td>
-                                <td id="description"></td>
-                                <td id="priority"></td>
-                                <td id="due_date"></td>
-                                <td id="status"></td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <h4 class="text-primary text-center">Actions</h4><hr>
-                    <table class="table table-sm table-bordered text-center">
-                        <tr>
-                            <th class="align-content-center pb-3">
-                                    Approve:
-                                    <input type="checkbox" class="option-input checkbox ml-3" name="approveCheckbox" id="approveCheckbox" value="approve"/>
-                                    <br> <br>
-                                    <div style="display: none" id="approve-submit">
-                                        <button onclick="approve()" class="btn btn-sm btn-outline-success">Submit</button>
-                                    </div>
-                            </th>
-                            <th>
-                                Decline:
-                                <input type="checkbox" class="option-input checkbox ml-3" id="declineCheckbox" name="declineCheckbox" value="approve"/>
-                                <br> <br>
-                                <div style="display: none" id="decline-submit">
-                                    <!--textarea class="form-control" name="reason" id="reason" style="height: 60px" placeholder="Reason for declining..." required></textarea-->
-                                    <input type="text" name="reason" id="reason" class="form-control" placeholder="Reason for declining..." required>
-                                    <br>
-                                    <button onclick="decline()" class="btn btn-sm btn-outline-success">Submit</button>
-                                </div>
-                            </th>
-                            <th>
-                                Not Available:
-                                <input type="checkbox" class="option-input checkbox ml-3" id="notAvailableCheckbox" name="notAvailableCheckbox" value="approve"/>
-                                <br> <br>
-                                <div style="display: none" id="na-submit">
-                                    <button onclick="notAvailable()" class="btn btn-sm btn-outline-success">Submit</button>
-                                </div>
-                            </th>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="col-lg-1 col-md-1 col-sm-12 col-sm-12">
-            </div>
-        </div>
-    </div>
-
-
-
-
 @endsection
 
 @section('scripts')
-    var currentID;
     <script>
-        function manage(theId) {
-            currentID = theId;
-
+        function markForCollection(currentID) {
+            console.log("For Collection " + currentID);
             $.ajax({
                 type:'POST',
-                url:'/assets/manage/show',
+                url:'/assets/manage/markForCollection',
                 data:{
                     theID: currentID,
                 },
                 success:function(response) {
-                    //success
-                    specification = response.specification
-                    console.log(specification);
-                    $('#date').text(specification.due_date);
-                    $('#specification').text(specification.name);
-                    $('#user').text(response.userName);
-                    $('#position').text(response.jobTitle);
-                    $('#description').text(specification.description);
-                    $('#priority').text(specification.priority);
-                    $('#due_date').text(specification.due_date);
-                    $('#status').text(specification.status);
-                }, error:function () {
-                    //error
-                    alert("An Error Occured");
-                }
-            });
-
-           document.getElementById('changeDetailsForm').style.display='block';
-        }
-
-
-        $("#approveCheckbox").change(function() {
-            if(this.checked) {
-                $("#declineCheckbox").prop("checked", false);
-                $("#notAvailableCheckbox").prop("checked", false);
-                $('#decline-submit').hide();
-                $('#na-submit').hide();
-                $('#approve-submit').show();
-            }
-            else {
-                $('#approve-submit').hide();
-            }
-        });
-
-        $("#declineCheckbox").change(function() {
-            if(this.checked) {
-                $("#approveCheckbox").prop("checked", false);
-                $("#notAvailableCheckbox").prop("checked", false);
-                $('#decline-submit').show();
-                $('#na-submit').hide();
-                $('#approve-submit').hide();
-            }
-            else {
-                $('#decline-submit').hide();
-            }
-        });
-
-        $("#notAvailableCheckbox").change(function() {
-            if(this.checked) {
-                $("#declineCheckbox").prop("checked", false);
-                $("#approveCheckbox").prop("checked", false);
-                $('#decline-submit').hide();
-                $('#approve-submit').hide();
-                $('#na-submit').show();
-            }
-            else {
-                $('#na-submit').hide();
-            }
-        });
-
-        function  approve() {
-            console.log("Approve " + currentID);
-            $.ajax({
-                type:'POST',
-                url:'/assets/manage/approve',
-                data:{
-                    theID: currentID,
-                },
-                success:function(response) {
-                    //success
-                    console.log(response.status);
-                    $('#changeDetailsForm').hide('fast');
                     $('#'+ currentID).hide();
+                    $.notify("Done!", "success");
                 }, error:function () {
                     //error
-                    alert("An Error Occured");
-                }
-            });
-
-        }
-
-        function decline() {
-            console.log("Decline " + currentID);
-            reason = $("#reason").val().trim();
-
-            if(reason == ""){
-                return;
-            }
-
-            $.ajax({
-                type:'POST',
-                url:'/assets/manage/decline',
-                data:{
-                    theID: currentID,
-                    reason: reason,
-                },
-                success:function(response) {
-                    //success
-                    console.log(response.status);
-                    $('#changeDetailsForm').hide('fast');
-                    $('#'+ currentID).hide();
-                }, error:function () {
-                    //error
-                    alert("An Error Occured");
+                    $.notify("An error occured!", "error");
                 }
             });
         }
-
-        function notAvailable() {
-            console.log("Decline " + currentID);
-            console.log("Approve " + currentID);
-            $.ajax({
-                type:'POST',
-                url:'/assets/manage/notAvailable',
-                data:{
-                    theID: currentID,
-                },
-                success:function(response) {
-                    //success
-                    console.log(response.status);
-                    $('#changeDetailsForm').hide('fast');
-                    $('#'+ currentID).hide();
-                }, error:function () {
-                    //error
-                    alert("An Error Occured");
-                }
-            });
-            console.log("Not Available " + currentID);
-        }
-
     </script>
     @endsection

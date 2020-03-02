@@ -16,6 +16,7 @@ class AssetsController extends Controller
             ->where('ready_for_collection', '=', 0)
             ->where('collected', '=', 0)
             ->get();
+        notify()->success('Laravel Notify is awesome!');
         return view('assets.index', compact('specifications'));
     }
 
@@ -55,7 +56,7 @@ class AssetsController extends Controller
 
     public function manageShow(Request $request) {
         $specification = Specification::find($request->theID);
-        session(['currentQR' => $specification->QrCode]);
+        session(['currentQR' => $specification->id]);
         $userName = $specification->user->name;
         $jobTitle = $specification->user->profile->jobTitle;
         return response()->json(['specification' => $specification, 'userName' => $userName, 'jobTitle' => $jobTitle]);
@@ -86,16 +87,25 @@ class AssetsController extends Controller
         return response()->json(['status' => 'done']);
     }
 
+    public function markForCollection(Request $request){
+        $specification = Specification::find($request->theID);
+        $specification->ready_for_collection = True;
+        $specification->save();
+        return response()->json(['status' => 'done']);
+    }
+
     public function collectApp(Request $request) {
         error_log($request->qrCode);
-        $result = DB::table('specifications')->where('QrCode', $request['qrCode'])->value('id');
-
+        $result = DB::table('specifications')->where('id', $request['qrCode'])->value('id');
         if ($result) {
-            return response()->json(['outcome' => 'success']);
+            $specification = Specification::find($result);
+            if ($specification->user->email == $request->email) {
+                $specification->collected = True;
+                $specification->save();
+                return response()->json(['outcome' => 'success']);
+            }
         }
-        else {
-            return response()->json(['outcome' => 'none']);
-        }
+        return response()->json(['outcome' => 'none']);
     }
 
     public function appLogin(Request $request) {
@@ -114,6 +124,24 @@ class AssetsController extends Controller
     }
 
     public function collectPaper(Request $request) {
-        return response()->json(['status' => 'done']);
+        $specification = Specification::find($request->theID);
+        error_log($specification);
+        if ($specification) {
+            if (Hash::check($request->password, $specification->user->password)) {
+                $specification->collected = True;
+                $specification->save();
+                return response()->json(['outcome' => 'success']);
+            }
+        }
+        return response()->json(['outcome' => 'none']);
+    }
+
+    public function collectAppCheck(Request $request) {
+        error_log("Checking if phone has scanned...");
+        $specification = Specification::find($request->theID);
+        if ($specification->collected == True) {
+            return response()->json(['outcome' => 'success']);
+        }
+        return response()->json(['outcome' => 'none']);
     }
 }

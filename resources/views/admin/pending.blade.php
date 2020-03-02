@@ -196,6 +196,13 @@
     @endsection
 
 @section('content')
+    <div class="shadow mb-3 bg-light">
+        <nav class="nav nav-pills flex-column flex-sm-row p-2">
+            <a class="flex-sm-fill text-sm-center nav-link active" href="/admin/pending" title="Pending Requests">Pending</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="/admin/approved" title="Approved Requests">Approved</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="/admin/rejected" title="Rejected requests">Rejected</a>
+        </nav>
+    </div>
 
     <div class="d-flex align-items-center">
 

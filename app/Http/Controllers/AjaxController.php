@@ -29,6 +29,17 @@ class AjaxController extends Controller
             }
             $specification->authorisations = $number_of_authorisors;
             $specification->save();
+
+            auth()->user()->adminActions()->create(
+                [
+                    "authorisor" => auth()->user()->email,
+                    "name" => $specification->name,
+                    "description" => $specification->description,
+                    "authorised" => True,
+                    "employee" => $specification->user->name,
+                ]
+            );
+
         }
         return response()->json(['status' => 'done']);
     }
@@ -52,10 +63,20 @@ class AjaxController extends Controller
             $specification = Specification::find($specificationID);
             $supervisor = auth()->user()->profile->supervisor;
             $supervisorName = DB::table('users')->where('email', $supervisor)->value('name');
-            if ($supervisorName) $specification->status = "Declined by ". $supervisorName;
+            if ($supervisorName) $specification->status = "Rejected by ". $supervisorName;
             else $specification->status = "Declined by ". $supervisor;
             $specification->authorisations = (-1);
             $specification->save();
+
+            auth()->user()->adminActions()->create(
+                [
+                    "authorisor" => auth()->user()->email,
+                    "name" => $specification->name,
+                    "description" => $specification->description,
+                    "authorised" => False,
+                    "employee" => $specification->user->name,
+                ]
+            );
         }
         return response()->json(['status' => 'done']);
     }

@@ -198,8 +198,8 @@
 @section('content')
     <div class="shadow mb-3 bg-light">
         <nav class="nav nav-pills flex-column flex-sm-row p-2">
-            <a class="flex-sm-fill text-sm-center nav-link active" href="/admin/pending" title="Pending Requests">Pending</a>
-            <a class="flex-sm-fill text-sm-center nav-link" href="/admin/approved" title="Approved Requests">Approved</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="/admin/pending" title="Pending Requests">Pending</a>
+            <a class="flex-sm-fill text-sm-center nav-link active" href="/admin/approved" title="Approved Requests">Approved</a>
             <a class="flex-sm-fill text-sm-center nav-link" href="/admin/rejected" title="Rejected requests">Rejected</a>
         </nav>
     </div>
@@ -226,58 +226,30 @@ Nostalgia food
                 <th>
                     <i data-feather="hash"></i>
                 </th>
-                <th>Employee</th>
+                <th>Date</th>
+                <th>Name</th>
                 <th>Specification</th>
                 <th>Description</th>
-                <th>Priority</th>
-                <th>Due Date</th>
-                <th>Status</th>
-                <th>Approve</th>
-                <th>Decline</th>
             </tr>
             </thead>
             <tbody>
 
-            @foreach($specifications as $specification)
-                <tr id="{{ $specification->id }}">
+            @foreach($approvals as $approval)
+                <tr id="{{ $approval->id }}">
                     <td>
-                        {{ $specification->id }}
-                    </td>
-                    <td>
-                        <a href="#" title="View more from {{ $specification->user->name }}">
-                            {{ $specification->user->name }}
-                        </a>
+                        {{ $approval->id }}
                     </td>
                     <td>
-                        <a href="#" title="View more {{ $specification->name }} requests.">
-                            {{ $specification->name }}
-                        </a>
+                        {{ $approval->created_at }}
                     </td>
                     <td>
-                        {{ $specification->description }}
+                        {{ $approval->employee }}
                     </td>
                     <td>
-                        <a href="#" title="View more {{ $specification->priority }} priority">
-                            {{ $specification->priority }}
-                        </a>
+                        {{ $approval->name }}
                     </td>
                     <td>
-                        <a href="#" title="View more due on 14/02/2020">
-                            {{ $specification->due_date }}
-                        </a>
-                    </td>
-                    <td>
-                        {{ $specification->status }}
-                    </td>
-                    <td class="align-content-center text-center">
-                        <button class="btn btn-outline-success" onclick="approve({{ $specification->id }})">
-                            <i data-feather="check" ></i>
-                        </button>
-                    </td>
-                    <td class="align-content-center text-center">
-                        <button class="btn btn-outline-danger" onclick="decline({{ $specification->id }})" >
-                            <i data-feather="x" ></i>
-                        </button>
+                        {{ $approval->description }}
                     </td>
                 </tr>
                 @endforeach

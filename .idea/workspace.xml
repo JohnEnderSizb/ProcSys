@@ -2,19 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8267ddbc-ac86-4b99-a752-d91e2e3e2e19" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/assets/collection.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/assets/declined.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/assets/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/assets/notAvail.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/testView.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/approved.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/pending.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/rejected.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/home/approved.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/home/collected.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/home/pending.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/home/rejected.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pdfs/pdf.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Procurement.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Procurement.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AssetsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AssetsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProcurementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProcurementController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_17_195550_create_specifications_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_17_195550_create_specifications_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/assets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets/collected.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/masterscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/masterscript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/assets/collected.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets/collected.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/assets/collection.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets/collection.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/assets/declined.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets/declined.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/assets/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/assets/notAvail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets/notAvail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -134,6 +149,16 @@
       <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/vendor/mckenziearts/laravel-notify" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
     </include_path>
   </component>
   <component name="ProjectId" id="1X9Ptq15PrrTr9HSa2XwMVyUyOL" />
@@ -150,19 +175,19 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/pdfs" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\JSiziba\Desktop\Procurement\Procurement\resources\views\assets" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\JSiziba\Desktop\Procurement\Procurement\resources\views\pdfs" />
+      <recent name="C:\Users\JSiziba\Desktop\Procurement\Procurement\resources\views\admin" />
+      <recent name="C:\Users\JSiziba\Desktop\Procurement\Procurement\resources\views\home" />
       <recent name="C:\Users\JSiziba\Desktop\Procurement\Procurement\resources\views\assets" />
       <recent name="C:\Users\JSiziba\Desktop\Procurement\Procurement\resources\views" />
-      <recent name="C:\Users\JSiziba\Desktop\Procurement\Procurement" />
-      <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\JSiziba\Desktop\Procurement\Procurement\resources\views\assets" />
     </key>
   </component>
   <component name="RunManager">
@@ -205,7 +230,9 @@
       <workItem from="1582560887838" duration="27731000" />
       <workItem from="1582648288666" duration="18460000" />
       <workItem from="1582673113431" duration="5518000" />
-      <workItem from="1582733309190" duration="28202000" />
+      <workItem from="1582733309190" duration="28815000" />
+      <workItem from="1582819903955" duration="19820000" />
+      <workItem from="1582906615251" duration="24810000" />
     </task>
     <servers />
   </component>
@@ -213,10 +240,18 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="232" y="151" key="#Log_Highlighting_(ideolog)" timestamp="1582827880190">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="232" y="151" key="#Log_Highlighting_(ideolog)/0.0.1280.984@0.0.1280.984" timestamp="1582827880190" />
     <state x="370" y="248" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1582748385223">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="370" y="248" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.984@0.0.1280.984" timestamp="1582748385223" />
+    <state x="324" y="148" width="646" height="688" key="#phpunit.xml" timestamp="1582935862724">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="324" y="148" width="646" height="688" key="#phpunit.xml/0.0.1280.984@0.0.1280.984" timestamp="1582935862724" />
     <state width="1237" height="263" key="GridCell.Tab.0.bottom" timestamp="1582599881755">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
@@ -241,19 +276,19 @@
       <screen x="23" y="0" width="1343" height="768" />
     </state>
     <state x="512" y="306" width="356" height="149" key="NewPhpFileDialog/23.0.1343.768@23.0.1343.768" timestamp="1580716853802" />
-    <state x="324" y="270" key="com.intellij.ide.util.TipDialog" timestamp="1582733368524">
+    <state x="324" y="270" key="com.intellij.ide.util.TipDialog" timestamp="1582907111460">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="324" y="270" key="com.intellij.ide.util.TipDialog/0.0.1280.984@0.0.1280.984" timestamp="1582733368524" />
+    <state x="324" y="270" key="com.intellij.ide.util.TipDialog/0.0.1280.984@0.0.1280.984" timestamp="1582907111460" />
     <state x="363" y="211" key="com.intellij.ide.util.TipDialog/23.0.1343.768@23.0.1343.768" timestamp="1580730347555" />
     <state x="296" y="226" key="run.anything.popup" timestamp="1582755497316">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="296" y="226" key="run.anything.popup/0.0.1280.984@0.0.1280.984" timestamp="1582755497316" />
-    <state x="318" y="114" width="672" height="869" key="search.everywhere.popup" timestamp="1582766618794">
+    <state x="318" y="114" width="672" height="869" key="search.everywhere.popup" timestamp="1582935485418">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="318" y="114" width="672" height="869" key="search.everywhere.popup/0.0.1280.984@0.0.1280.984" timestamp="1582766618794" />
+    <state x="318" y="114" width="672" height="869" key="search.everywhere.popup/0.0.1280.984@0.0.1280.984" timestamp="1582935485418" />
     <state x="357" y="89" width="672" height="678" key="search.everywhere.popup/23.0.1343.768@23.0.1343.768" timestamp="1580732950833" />
   </component>
 </project>

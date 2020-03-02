@@ -28,5 +28,8 @@ class VerifyCsrfToken extends Middleware
         '/assets/manage/notAvailable',
         '/app/assets/collect',
         '/app/login',
+        '/assets/collect',
+        '/app/collect/check',
+        '/assets/manage/markForCollection',
     ];
 }

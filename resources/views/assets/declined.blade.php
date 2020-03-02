@@ -105,9 +105,6 @@
             <th>Position</th>
             <th>Specification</th>
             <th>Description</th>
-            <th>Priority</th>
-            <th>Due Date</th>
-            <th>Status</th>
             <th>View</th>
         </tr>
         @foreach($specifications as  $specification)
@@ -118,12 +115,9 @@
                 <td>{{ $specification->user->profile->jobTitle }}</td>
                 <td>{{ $specification->name }}</td>
                 <td>{{ $specification->description }}</td>
-                <td>{{ $specification->priority }}</td>
-                <td>{{ $specification->due_date }}</td>
-                <td>{{ $specification->status }}</td>
                 <td class="align-content-center text-center pt-2">
                     <a href="#" class="" title="Manage" onclick="manage({{ $specification->id }})">
-                        <i data-feather="edit" style="color: #0168f8"></i>
+                        <i data-feather="trash-2" class="text-danger"></i>
                     </a>
                 </td>
             </tr>

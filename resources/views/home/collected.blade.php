@@ -1,7 +1,7 @@
 @extends('home')
 
 @section('styling')
-    <link rel="stylesheet" href="css/index_blade.css">
+    <link rel="stylesheet" href="/css/index_blade.css">
 
     <style>
         table {
@@ -17,9 +17,10 @@
 @section('content')
     <div class="shadow mb-3 bg-light">
         <nav class="nav nav-pills flex-column flex-sm-row p-2">
-            <a class="flex-sm-fill text-sm-center nav-link active" href="/assets/home" title="New Internal Requisitions">Pending</a>
-            <a class="flex-sm-fill text-sm-center nav-link" href="/assets/collection" title="Ready for collection">Approved</a>
-            <a class="flex-sm-fill text-sm-center nav-link" href="/assets/collected" title="Collected assets">Collected</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="/home" title="New Internal Requisitions">Pending</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="/home/approved" title="Ready for collection">Approved</a>
+            <a class="flex-sm-fill text-sm-center nav-link active" href="/home/collected" title="Collected assets">Collected</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="/home/rejected" title="Rejected requests">Rejected</a>
         </nav>
     </div>
 

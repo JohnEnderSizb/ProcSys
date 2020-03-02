@@ -27,7 +27,7 @@ class CreateSpecificationsTable extends Migration
             $table->boolean('authorised_by_assets');
             $table->boolean('ready_for_collection');
             $table->boolean('collected');
-            $table->string('QrCode');
+            $table->timestamp('collected_on')->nullable();
             $table->timestamps();
         });
     }

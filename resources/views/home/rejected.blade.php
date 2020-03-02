@@ -17,9 +17,10 @@
 @section('content')
     <div class="shadow mb-3 bg-light">
         <nav class="nav nav-pills flex-column flex-sm-row p-2">
-            <a class="flex-sm-fill text-sm-center nav-link active" href="/home" title="New Internal Requisitions">Pending</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="/home" title="New Internal Requisitions">Pending</a>
             <a class="flex-sm-fill text-sm-center nav-link" href="/home/approved" title="Ready for collection">Approved</a>
             <a class="flex-sm-fill text-sm-center nav-link" href="/home/collected" title="Collected assets">Collected</a>
+            <a class="flex-sm-fill text-sm-center nav-link active" href="/home/rejected" title="Rejected requests">Rejected</a>
         </nav>
     </div>
 
@@ -55,7 +56,8 @@
                 <th>Priority</th>
                 <th>Due Date</th>
                 <th>Status</th>
-                <th>View</th>
+                <th>Reason</th>
+                <!--th>View</th-->
             </tr>
             </thead>
             <tbody>
@@ -68,11 +70,12 @@
                     <td>{{ $specification->priority }}</td>
                     <td>{{ $specification->due_date }}</td>
                     <td>{{ $specification->status }}</td>
-                    <td class="align-content-center text-center">
+                    <td>{{ $specification->reason_for_decline }}</td>
+                    <!--td class="align-content-center text-center">
                         <a href="/specifications/{{ $specification->id }}/view" title="View Lorem ipsum dolor sit amet, consectetur adipisicing elit. 13/07/2020">
                             <i data-feather="eye" style="color: #0168f8"></i>
                         </a>
-                    </td>
+                    </td-->
                 </tr>
                 @endforeach
             </tbody>

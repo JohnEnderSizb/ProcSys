@@ -299,7 +299,7 @@
                             <h5>
                                 <label for="due-date" style="color: #0168f8">Due date:</label>
                             </h5>
-                            <input type="date" class="form-control field-style" name="due_date" required>
+                            <input type="date" class="form-control field-style" name="due_date" required min="<?= date('Y-m-d'); ?>">
                         </div>
                     </td>
                     <td>

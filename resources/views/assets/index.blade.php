@@ -122,9 +122,9 @@
                 <td>{{ $specification->due_date }}</td>
                 <td>{{ $specification->status }}</td>
                 <td class="align-content-center text-center pt-2">
-                    <a href="#" class="" title="Manage" onclick="manage({{ $specification->id }})">
-                        <i data-feather="edit" style="color: #0168f8"></i>
-                    </a>
+                    <button class="btn btn-outline-primary" onclick="manage({{ $specification->id }})">
+                        <i data-feather="edit"></i>
+                    </button>
                 </td>
             </tr>
 
@@ -297,12 +297,13 @@
                 },
                 success:function(response) {
                     //success
+                    $.notify("Done!", "success");
                     console.log(response.status);
                     $('#changeDetailsForm').hide('fast');
                     $('#'+ currentID).hide();
                 }, error:function () {
                     //error
-                    alert("An Error Occured");
+                    $.notify("An error occured!", "error");
                 }
             });
 
@@ -325,12 +326,13 @@
                 },
                 success:function(response) {
                     //success
+                    $.notify("Done!", "success");
                     console.log(response.status);
                     $('#changeDetailsForm').hide('fast');
                     $('#'+ currentID).hide();
                 }, error:function () {
                     //error
-                    alert("An Error Occured");
+                    $.notify("An error occured!", "error");
                 }
             });
         }
@@ -346,12 +348,13 @@
                 },
                 success:function(response) {
                     //success
+                    $.notify("Done!", "success");
                     console.log(response.status);
                     $('#changeDetailsForm').hide('fast');
                     $('#'+ currentID).hide();
                 }, error:function () {
                     //error
-                    alert("An Error Occured");
+                    $.notify("An error occured!", "error");
                 }
             });
             console.log("Not Available " + currentID);
