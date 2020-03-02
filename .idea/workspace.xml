@@ -2,22 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8267ddbc-ac86-4b99-a752-d91e2e3e2e19" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/assets/collection.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/assets/declined.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/assets/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/assets/notAvail.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/testView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Procurement.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Procurement.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AssetsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AssetsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProcurementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProcurementController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_17_195550_create_specifications_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_17_195550_create_specifications_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/assets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets/collected.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/github.bat" beforeDir="false" afterPath="$PROJECT_DIR$/github.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,6 +127,40 @@
       <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/vendor/vendor/phpdocumentor" />
+      <path value="$PROJECT_DIR$/vendor/vendor/jakub-onderka" />
+      <path value="$PROJECT_DIR$/vendor/vendor/maximebf" />
+      <path value="$PROJECT_DIR$/vendor/vendor/myclabs" />
+      <path value="$PROJECT_DIR$/vendor/vendor/bacon" />
+      <path value="$PROJECT_DIR$/vendor/vendor/dnoegel" />
+      <path value="$PROJECT_DIR$/vendor/vendor/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/vendor/paragonie" />
+      <path value="$PROJECT_DIR$/vendor/vendor/mockery" />
+      <path value="$PROJECT_DIR$/vendor/vendor/nunomaduro" />
+      <path value="$PROJECT_DIR$/vendor/vendor/dragonmantank" />
+      <path value="$PROJECT_DIR$/vendor/vendor/doctrine" />
+      <path value="$PROJECT_DIR$/vendor/vendor/nikic" />
+      <path value="$PROJECT_DIR$/vendor/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/vendor/league" />
+      <path value="$PROJECT_DIR$/vendor/vendor/psy" />
+      <path value="$PROJECT_DIR$/vendor/vendor/fideloper" />
+      <path value="$PROJECT_DIR$/vendor/vendor/barryvdh" />
+      <path value="$PROJECT_DIR$/vendor/vendor/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/vendor/ramsey" />
+      <path value="$PROJECT_DIR$/vendor/vendor/phar-io" />
+      <path value="$PROJECT_DIR$/vendor/vendor/laravel" />
+      <path value="$PROJECT_DIR$/vendor/vendor/bin" />
+      <path value="$PROJECT_DIR$/vendor/vendor/filp" />
+      <path value="$PROJECT_DIR$/vendor/vendor/hamcrest" />
+      <path value="$PROJECT_DIR$/vendor/vendor/facade" />
+      <path value="$PROJECT_DIR$/vendor/vendor/nesbot" />
+      <path value="$PROJECT_DIR$/vendor/vendor/opis" />
+      <path value="$PROJECT_DIR$/vendor/vendor/fzaninotto" />
+      <path value="$PROJECT_DIR$/vendor/vendor/monolog" />
+      <path value="$PROJECT_DIR$/vendor/vendor/psr" />
+      <path value="$PROJECT_DIR$/vendor/vendor/scrivo" />
+      <path value="$PROJECT_DIR$/vendor/vendor/phpspec" />
+      <path value="$PROJECT_DIR$/vendor/vendor/egulias" />
     </include_path>
   </component>
   <component name="ProjectId" id="1X9Ptq15PrrTr9HSa2XwMVyUyOL" />
@@ -150,38 +177,38 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\JSiziba\Desktop\Procurement\Procurement\resources\views\assets" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\JSiziba\Desktop\ProcSys" />
       <recent name="C:\Users\JSiziba\Desktop\Procurement\Procurement\resources\views\assets" />
       <recent name="C:\Users\JSiziba\Desktop\Procurement\Procurement\resources\views" />
       <recent name="C:\Users\JSiziba\Desktop\Procurement\Procurement" />
       <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/public" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\JSiziba\Desktop\Procurement\Procurement\resources\views\assets" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -206,11 +233,27 @@
       <workItem from="1582648288666" duration="18460000" />
       <workItem from="1582673113431" duration="5518000" />
       <workItem from="1582733309190" duration="28202000" />
+      <workItem from="1583130040767" duration="442000" />
+      <workItem from="1583130917578" duration="4362000" />
+      <workItem from="1583137773724" duration="85000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="370" y="248" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1582748385223">

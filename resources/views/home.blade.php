@@ -11,7 +11,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="../../logo.png">
 
-    <title>Procurement</title>
+    <title>Requisitions</title>
 
     <!-- vendor css -->
     <link href="../../lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -135,7 +135,7 @@
     <div class="aside-header">
         <a href="/home"
            style="color: #0168f8"
-           class="aside-logo">Procurement</a>
+           class="aside-logo">Requisitions</a>
         <a href="" class="aside-menu-link">
             <i data-feather="menu"></i>
             <i data-feather="x"></i>

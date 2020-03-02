@@ -95,6 +95,40 @@
       <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/vendor/vendor/phpdocumentor" />
+      <path value="$PROJECT_DIR$/vendor/vendor/jakub-onderka" />
+      <path value="$PROJECT_DIR$/vendor/vendor/maximebf" />
+      <path value="$PROJECT_DIR$/vendor/vendor/myclabs" />
+      <path value="$PROJECT_DIR$/vendor/vendor/bacon" />
+      <path value="$PROJECT_DIR$/vendor/vendor/dnoegel" />
+      <path value="$PROJECT_DIR$/vendor/vendor/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/vendor/paragonie" />
+      <path value="$PROJECT_DIR$/vendor/vendor/mockery" />
+      <path value="$PROJECT_DIR$/vendor/vendor/nunomaduro" />
+      <path value="$PROJECT_DIR$/vendor/vendor/dragonmantank" />
+      <path value="$PROJECT_DIR$/vendor/vendor/doctrine" />
+      <path value="$PROJECT_DIR$/vendor/vendor/nikic" />
+      <path value="$PROJECT_DIR$/vendor/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/vendor/league" />
+      <path value="$PROJECT_DIR$/vendor/vendor/psy" />
+      <path value="$PROJECT_DIR$/vendor/vendor/fideloper" />
+      <path value="$PROJECT_DIR$/vendor/vendor/barryvdh" />
+      <path value="$PROJECT_DIR$/vendor/vendor/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/vendor/ramsey" />
+      <path value="$PROJECT_DIR$/vendor/vendor/phar-io" />
+      <path value="$PROJECT_DIR$/vendor/vendor/laravel" />
+      <path value="$PROJECT_DIR$/vendor/vendor/bin" />
+      <path value="$PROJECT_DIR$/vendor/vendor/filp" />
+      <path value="$PROJECT_DIR$/vendor/vendor/hamcrest" />
+      <path value="$PROJECT_DIR$/vendor/vendor/facade" />
+      <path value="$PROJECT_DIR$/vendor/vendor/nesbot" />
+      <path value="$PROJECT_DIR$/vendor/vendor/opis" />
+      <path value="$PROJECT_DIR$/vendor/vendor/fzaninotto" />
+      <path value="$PROJECT_DIR$/vendor/vendor/monolog" />
+      <path value="$PROJECT_DIR$/vendor/vendor/psr" />
+      <path value="$PROJECT_DIR$/vendor/vendor/scrivo" />
+      <path value="$PROJECT_DIR$/vendor/vendor/phpspec" />
+      <path value="$PROJECT_DIR$/vendor/vendor/egulias" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
