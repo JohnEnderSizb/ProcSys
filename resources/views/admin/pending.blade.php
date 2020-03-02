@@ -212,7 +212,6 @@
     </div>
     <hr>
 
-Nostalgia food
         <table class="responsive-table">
             <thead>
             <tr>

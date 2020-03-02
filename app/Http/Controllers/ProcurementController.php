@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\Approved;
 use App\Specification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -69,21 +70,6 @@ class ProcurementController extends Controller
                 "QrCode" => $qr_code,
             ]
         );
-
-        /*
-        //$specification = DB::table("specifications")->find($theId->id);
-        $specification = Specification::find($theId->id);
-        //dd(gettype($specification));
-
-        $specification->authentications()->create(
-            [
-                "authoriser" => $specification->authoriser,
-                "level" => $level,
-                "status" => "0",
-            ]
-        );
-        */
-
         return redirect('/home');
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\Approved;
 use App\Specification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -29,6 +30,7 @@ class AjaxController extends Controller
             }
             $specification->authorisations = $number_of_authorisors;
             $specification->save();
+            $specification->user->notify(new Approved($specification->name, auth()->user()->name));
         }
         return response()->json(['status' => 'done']);
     }
