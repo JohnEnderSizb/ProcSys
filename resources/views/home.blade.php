@@ -194,15 +194,15 @@
             @endif
 
             <!--li class="nav-item"><a href="/links" class="nav-link"><i data-feather="link" style="color: #0168f8"></i> <span>Quick Links</span></a></li-->
-            <li class="nav-item"><a href="/assets/home" class="nav-link"><i data-feather="link" style="color: #0168f8"></i> <span>Assets</span></a></li>
-            <li class="nav-item"><a href="/home" class="nav-link"><i data-feather="bell" style="color: #0168f8"></i> <span>Notifications</span></a></li>
+            <li class="nav-item"><a href="/assets/home" class="nav-link"><i data-feather="link"></i> <span>Assets</span></a></li>
+            <li class="nav-item"><a href="/home" class="nav-link"><i data-feather="bell"></i> <span>Notifications</span></a></li>
             <!--li class="nav-item"><a href="/settings" class="nav-link"><i data-feather="settings" style="color: #0168f8"></i> <span>Settings</span></a></li>
             <li class="nav-item"><a href="/mail" class="nav-link"><i data-feather="mail" style="color: #0168f8"></i> <span>Messages</span></a></li>
             <li class="nav-item"><a href="/help" class="nav-link"><i data-feather="help-circle" style="color: #0168f8"></i> <span>Help Center</span></a></li-->
             <li class="nav-item" title="Exit App"><a href="/help" class="nav-link"
                 onclick="event.preventDefault();
                  document.getElementById('logout-form').submit();"
-                ><i data-feather="log-out" style="color: #0168f8"></i> <span>Log Out</span></a></li>
+                ><i data-feather="log-out"></i> <span>Log Out</span></a></li>
         </ul>
     </div>
 </aside>

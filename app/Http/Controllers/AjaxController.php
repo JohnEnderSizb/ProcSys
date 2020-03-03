@@ -30,7 +30,12 @@ class AjaxController extends Controller
             }
             $specification->authorisations = $number_of_authorisors;
             $specification->save();
-            $specification->user->notify(new Approved($specification->name, auth()->user()->name));
+            try {
+                $specification->user->notify(new Approved($specification->name, auth()->user()->name));
+            } catch (Exception $e) {
+                //echo 'Caught exception: ',  $e->getMessage(), "\n";
+                ;
+            }
 
 
             auth()->user()->adminActions()->create(

@@ -11,7 +11,7 @@ class Approved extends Notification implements ShouldQueue
 {
     use Queueable;
     private $name;
-    private $approbedBy;
+    private $approvedBy;
 
     /**
      * Create a new notification instance.
@@ -44,7 +44,7 @@ class Approved extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         $name = $this->name;
-        $approvedBy = $this->$approvedBy;
+        $approvedBy = $this->approvedBy;
         return (new MailMessage)
                     ->greeting("Hello $notifiable->name")
                     ->subject('Requisition approved.')

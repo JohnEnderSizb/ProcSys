@@ -10,6 +10,6 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 class TestController extends Controller
 {
     public function test(){
-        return QrCode::generate("string");
+        return view("test");
     }
 }

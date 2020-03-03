@@ -31,7 +31,7 @@ class ProcurementController extends Controller
     }
 
     public function collected() {
-        $specifications = auth()->user()->specifications()->where('authorisations', '>=', 0)->paginate(15);
+        $specifications = auth()->user()->specifications()->where('collected', '=', 1)->paginate(15);
         return view('home.collected',compact('specifications'));
     }
 
